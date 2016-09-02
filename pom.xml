@@ -40,6 +40,10 @@
                     <include>**/*.groovy</include>
                 </includes>
             </resource>
+
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
         </resources>
 
         <pluginManagement>
