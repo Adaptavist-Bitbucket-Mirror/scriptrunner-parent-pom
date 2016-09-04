@@ -5,9 +5,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-	<groupId>com.adaptavist</groupId>
-	<artifactId>scriptrunner-parent</artifactId>
-	<version>1-SNAPSHOT</version>
+    <groupId>com.adaptavist</groupId>
+    <artifactId>scriptrunner-parent</artifactId>
+    <version>1-SNAPSHOT</version>
 
     <organization>
         <name>Example Company</name>
@@ -62,6 +62,36 @@
                             </goals>
                         </execution>
                     </executions>
+                    <configuration>
+                        <sources>
+                            <source>
+                                <directory>${project.basedir}/src/main/groovy</directory>
+                                <includes>
+                                    <include>**/*.groovy</include>
+                                </includes>
+                            </source>
+                            <source>
+                                <directory>${project.basedir}/src/main/resources</directory>
+                                <includes>
+                                    <include>groovy/**/*.groovy</include>
+                                </includes>
+                            </source>
+                        </sources>
+                        <testSources>
+                            <testSource>
+                                <directory>${project.basedir}/src/test/groovy</directory>
+                                <includes>
+                                    <include>**/*.groovy</include>
+                                </includes>
+                            </testSource>
+                            <testSource>
+                                <directory>${project.basedir}/src/test/resources</directory>
+                                <includes>
+                                    <include>groovy/**/*.groovy</include>
+                                </includes>
+                            </testSource>
+                        </testSources>
+                    </configuration>
                     <dependencies>
                         <dependency>
                             <groupId>org.codehaus.groovy</groupId>
@@ -92,9 +122,10 @@
                         <enableFastdev>false</enableFastdev>
 
                         <systemPropertyVariables>
-                            <jira.dev.mode>false</jira.dev.mode>
                             <atlassian.dev.mode>false</atlassian.dev.mode>
-                            <plugin.script.roots>${project.basedir}/src/main/resources,${project.basedir}/src/test/resources</plugin.script.roots>
+                            <plugin.script.roots>
+                                ${project.basedir}/src/main/resources,${project.basedir}/src/test/resources
+                            </plugin.script.roots>
                         </systemPropertyVariables>
 
                         <httpPort>8080</httpPort>
@@ -144,12 +175,15 @@
                                 <version>${scriptrunner.version}</version>
                             </pluginArtifact>
                         </pluginArtifacts>
-                        <enableQuickReload>true</enableQuickReload>
+                        <enableQuickReload>false</enableQuickReload>
                         <enableFastdev>false</enableFastdev>
 
                         <systemPropertyVariables>
                             <atlassian.dev.mode>false</atlassian.dev.mode>
-                            <plugin.script.roots>${project.basedir}/src/main/resources,${project.basedir}/src/test/resources</plugin.script.roots>
+                            <plugin.script.roots>
+                                ${project.basedir}/src/main/resources,${project.basedir}/src/test/resources
+                            </plugin.script.roots>
+                            <jira.websudo.is.disabled>true</jira.websudo.is.disabled>
                         </systemPropertyVariables>
 
                         <httpPort>8080</httpPort>
@@ -202,7 +236,9 @@
 
                         <systemPropertyVariables>
                             <atlassian.dev.mode>false</atlassian.dev.mode>
-                            <plugin.script.roots>${project.basedir}/src/main/resources,${project.basedir}/src/test/resources</plugin.script.roots>
+                            <plugin.script.roots>
+                                ${project.basedir}/src/main/resources,${project.basedir}/src/test/resources
+                            </plugin.script.roots>
                         </systemPropertyVariables>
 
                         <httpPort>8080</httpPort>
