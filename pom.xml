@@ -10,12 +10,12 @@
     <version>1-SNAPSHOT</version>
 
     <organization>
-        <name>Example Company</name>
-        <url>http://www.example.com/</url>
+        <name>Adaptavist.com Ltd</name>
+        <url>http://www.adaptavist.com/</url>
     </organization>
 
-    <name>base pom</name>
-    <description>Base pom.</description>
+    <name>ScriptRunner script plugins base pom</name>
+    <description>Base pom for ScriptRunner script plugins.</description>
     <packaging>pom</packaging>
 
     <dependencies>
@@ -273,6 +273,18 @@
         </pluginManagement>
 
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>nexus</id>
+            <url>https://nexus.adaptavist.com/content/repositories/external</url>
+        </repository>
+
+        <snapshotRepository>
+            <id>nexus</id>
+            <url>https://nexus.adaptavist.com/content/repositories/external-snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <properties>
         <confluence.version>5.10.4</confluence.version>
