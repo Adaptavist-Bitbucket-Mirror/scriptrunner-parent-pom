@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.adaptavist</groupId>
@@ -30,6 +31,9 @@
     </dependencies>
 
     <build>
+
+        <sourceDirectory>src/main/groovy</sourceDirectory>
+
         <!--always include source groovy files as source too, while some places require it-->
         <resources>
             <resource>
@@ -43,6 +47,13 @@
                 <directory>src/main/resources</directory>
             </resource>
         </resources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.gmavenplus</groupId>
+                <artifactId>gmavenplus-plugin</artifactId>
+            </plugin>
+        </plugins>
 
         <pluginManagement>
             <plugins>
@@ -285,9 +296,10 @@
     </distributionManagement>
 
     <scm>
-        <developerConnection>scm:git:ssh://git@stash.adaptavist.com:7999/sr/scriptrunner-parent-pom.git</developerConnection>
-      <tag>HEAD</tag>
-  </scm>
+        <developerConnection>scm:git:ssh://git@stash.adaptavist.com:7999/sr/scriptrunner-parent-pom.git
+        </developerConnection>
+        <tag>HEAD</tag>
+    </scm>
 
     <properties>
         <confluence.version>5.10.4</confluence.version>
