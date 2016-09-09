@@ -126,6 +126,12 @@
                                 <artifactId>groovyrunner</artifactId>
                                 <version>${scriptrunner.version}</version>
                             </pluginArtifact>
+
+                            <pluginArtifact>
+                                <groupId>com.atlassian.labs.plugins</groupId>
+                                <artifactId>quickreload</artifactId>
+                                <version>${quick.reload.version}</version>
+                            </pluginArtifact>
                         </pluginArtifacts>
                         <enableQuickReload>true</enableQuickReload>
                         <enableFastdev>false</enableFastdev>
@@ -183,6 +189,12 @@
                                 <artifactId>groovyrunner</artifactId>
                                 <version>${scriptrunner.version}</version>
                             </pluginArtifact>
+
+                            <pluginArtifact>
+                                <groupId>com.atlassian.labs.plugins</groupId>
+                                <artifactId>quickreload</artifactId>
+                                <version>${quick.reload.version}</version>
+                            </pluginArtifact>
                         </pluginArtifacts>
                         <enableQuickReload>false</enableQuickReload>
                         <enableFastdev>false</enableFastdev>
@@ -238,6 +250,12 @@
                                 <groupId>com.onresolve.stash.groovy</groupId>
                                 <artifactId>groovyrunner</artifactId>
                                 <version>${scriptrunner.version}</version>
+                            </pluginArtifact>
+
+                            <pluginArtifact>
+                                <groupId>com.atlassian.labs.plugins</groupId>
+                                <artifactId>quickreload</artifactId>
+                                <version>${quick.reload.version}</version>
                             </pluginArtifact>
                         </pluginArtifacts>
                         <enableQuickReload>true</enableQuickReload>
@@ -314,6 +332,8 @@
 
         <scriptrunner.version>4.3.7-m1</scriptrunner.version>
         <amps.version>6.2.6</amps.version>
+
+        <quick.reload.version>1.30.5</quick.reload.version>
     </properties>
 
 </project>
