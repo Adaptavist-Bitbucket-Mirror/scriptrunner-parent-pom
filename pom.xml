@@ -82,7 +82,7 @@
                             <source>
                                 <directory>${project.basedir}/src/main/resources</directory>
                                 <includes>
-                                    <include>groovy/**/*.groovy</include>
+                                    <include>**/*.groovy</include>
                                 </includes>
                             </source>
                         </sources>
@@ -96,7 +96,7 @@
                             <testSource>
                                 <directory>${project.basedir}/src/test/resources</directory>
                                 <includes>
-                                    <include>groovy/**/*.groovy</include>
+                                    <include>**/*.groovy</include>
                                 </includes>
                             </testSource>
                         </testSources>
