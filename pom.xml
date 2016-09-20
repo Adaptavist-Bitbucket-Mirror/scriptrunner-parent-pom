@@ -330,7 +330,7 @@
         <bitbucket.version>4.9.1</bitbucket.version>
         <bitbucket.data.version>4.9.1</bitbucket.data.version>
 
-        <scriptrunner.version>4.3.7-m3</scriptrunner.version>
+        <scriptrunner.version>4.3.7-m4</scriptrunner.version>
         <amps.version>6.2.6</amps.version>
 
         <quick.reload.version>1.30.5</quick.reload.version>
