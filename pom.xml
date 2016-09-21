@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.adaptavist</groupId>
     <artifactId>scriptrunner-parent</artifactId>
-    <version>3</version>
+    <version>4-SNAPSHOT</version>
 
     <organization>
         <name>Adaptavist.com Ltd</name>
