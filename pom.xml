@@ -117,6 +117,9 @@
                     <version>${amps.version}</version>
                     <extensions>true</extensions>
                     <configuration>
+
+                        <skipAmpsPomCheck>true</skipAmpsPomCheck>
+
                         <productVersion>${confluence.version}</productVersion>
                         <productDataVersion>${confluence.data.version}</productDataVersion>
 
@@ -180,15 +183,16 @@
                     <extensions>true</extensions>
                     <configuration>
 
+                        <skipAmpsPomCheck>true</skipAmpsPomCheck>
+
                         <productVersion>${jira.version}</productVersion>
                         <productDataVersion>${jira.version}</productDataVersion>
 
                         <pluginArtifacts>
                             <pluginArtifact>
                                 <groupId>com.onresolve.scriptrunner.platform</groupId>
-                                <artifactId>scriptrunner-test-libraries</artifactId>
+                                <artifactId>scriptrunner-test-libraries-jira</artifactId>
                                 <version>${scriptrunner.version}</version>
-								<classifier>jira</classifier>
                             </pluginArtifact>
 
                             <pluginArtifact>
@@ -243,6 +247,9 @@
                     <version>${amps.version}</version>
                     <extensions>true</extensions>
                     <configuration>
+
+                        <skipAmpsPomCheck>true</skipAmpsPomCheck>
+
                         <products>
                             <product>
                                 <id>bitbucket</id>
