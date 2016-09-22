@@ -20,7 +20,6 @@
     <dependencies>
 
         <!--could optionally include all script runner versions here-->
-
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
@@ -28,7 +27,63 @@
             <scope>provided</scope>
         </dependency>
 
+        <!--this is here because it's required by the monkey patch manager :(-->
+        <dependency>
+            <groupId>com.atlassian.jira.plugins</groupId>
+            <artifactId>jira-greenhopper-plugin</artifactId>
+            <version>7.0.10</version>
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <dependency>
+                <groupId>com.onresolve.jira.groovy</groupId>
+                <artifactId>groovyrunner</artifactId>
+                <version>${scriptrunner.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.onresolve.confluence.groovy</groupId>
+                <artifactId>groovyrunner</artifactId>
+                <version>${scriptrunner.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.onresolve.stash.groovy</groupId>
+                <artifactId>groovyrunner</artifactId>
+                <version>${scriptrunner.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.onresolve.scriptrunner.platform</groupId>
+                <artifactId>scriptrunner-test-libraries-jira</artifactId>
+                <version>${scriptrunner.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.onresolve.scriptrunner.platform</groupId>
+                <artifactId>scriptrunner-test-libraries-jira</artifactId>
+                <version>${scriptrunner.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.onresolve.scriptrunner.platform</groupId>
+                <artifactId>scriptrunner-test-libraries-jira</artifactId>
+                <version>${scriptrunner.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
 
     <build>
 
@@ -142,7 +197,7 @@
                         <systemPropertyVariables>
                             <atlassian.dev.mode>false</atlassian.dev.mode>
                             <plugin.script.roots>
-                                ${project.basedir}/src/main/resources,${project.basedir}/src/test/resources
+                                ${project.basedir}/src/main/resources,${project.basedir}/src/test/groovy
                             </plugin.script.roots>
                         </systemPropertyVariables>
 
@@ -213,7 +268,7 @@
                         <systemPropertyVariables>
                             <atlassian.dev.mode>false</atlassian.dev.mode>
                             <plugin.script.roots>
-                                ${project.basedir}/src/main/resources,${project.basedir}/src/test/resources
+                                ${project.basedir}/src/main/resources,${project.basedir}/src/test/groovy
                             </plugin.script.roots>
                             <jira.websudo.is.disabled>true</jira.websudo.is.disabled>
                         </systemPropertyVariables>
@@ -221,7 +276,8 @@
                         <httpPort>8080</httpPort>
 
                         <instructions>
-                            <!-- Add package import here -->
+                            <!-- modify resolution and version of final * -->
+
                             <Import-Package>
                                 org.springframework.osgi.*;resolution:="optional",
                                 org.eclipse.gemini.blueprint.*;resolution:="optional",
@@ -238,6 +294,26 @@
                             <DynamicImport-Package>*</DynamicImport-Package>
 
                         </instructions>
+
+                        <testSourceDirectory>src/test/groovy</testSourceDirectory>
+
+                        <testGroups>
+                            <testGroup>
+                                <id>jira-integration</id>
+                                <productIds>
+                                    <productId>jira</productId>
+                                </productIds>
+                                <includes>
+                                    <include>**/*Spec.*</include>
+                                    <include>**/*Test.*</include>
+                                </includes>
+
+                                <excludes>
+                                    <exclude>**/func/**</exclude>
+                                </excludes>
+                            </testGroup>
+                        </testGroups>
+
                     </configuration>
                 </plugin>
 
@@ -278,7 +354,7 @@
                         <systemPropertyVariables>
                             <atlassian.dev.mode>false</atlassian.dev.mode>
                             <plugin.script.roots>
-                                ${project.basedir}/src/main/resources,${project.basedir}/src/test/resources
+                                ${project.basedir}/src/main/resources,${project.basedir}/src/test/groovy
                             </plugin.script.roots>
                         </systemPropertyVariables>
 
@@ -356,7 +432,7 @@
         <bitbucket.version>4.9.1</bitbucket.version>
         <bitbucket.data.version>4.9.1</bitbucket.data.version>
 
-        <scriptrunner.version>4.3.7-m5</scriptrunner.version>
+        <scriptrunner.version>4.3.7-m6</scriptrunner.version>
         <amps.version>6.2.8</amps.version>
 
         <quick.reload.version>1.30.5</quick.reload.version>
