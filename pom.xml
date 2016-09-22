@@ -188,6 +188,7 @@
                                 <groupId>com.onresolve.scriptrunner.platform</groupId>
                                 <artifactId>scriptrunner-test-libraries</artifactId>
                                 <version>${scriptrunner.version}</version>
+								<classifier>jira</classifier>
                             </pluginArtifact>
 
                             <pluginArtifact>
