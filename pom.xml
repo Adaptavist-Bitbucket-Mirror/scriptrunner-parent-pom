@@ -185,6 +185,12 @@
 
                         <pluginArtifacts>
                             <pluginArtifact>
+                                <groupId>com.onresolve.scriptrunner.platform</groupId>
+                                <artifactId>scriptrunner-test-libraries</artifactId>
+                                <version>${scriptrunner.version}</version>
+                            </pluginArtifact>
+
+                            <pluginArtifact>
                                 <groupId>com.onresolve.jira.groovy</groupId>
                                 <artifactId>groovyrunner</artifactId>
                                 <version>${scriptrunner.version}</version>
