@@ -70,14 +70,14 @@
 
             <dependency>
                 <groupId>com.onresolve.scriptrunner.platform</groupId>
-                <artifactId>scriptrunner-test-libraries-jira</artifactId>
+                <artifactId>scriptrunner-test-libraries-confluence</artifactId>
                 <version>${scriptrunner.version}</version>
                 <scope>test</scope>
             </dependency>
 
             <dependency>
                 <groupId>com.onresolve.scriptrunner.platform</groupId>
-                <artifactId>scriptrunner-test-libraries-jira</artifactId>
+                <artifactId>scriptrunner-test-libraries-bitbucket</artifactId>
                 <version>${scriptrunner.version}</version>
                 <scope>test</scope>
             </dependency>
