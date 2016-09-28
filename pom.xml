@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.adaptavist</groupId>
     <artifactId>scriptrunner-parent</artifactId>
-    <version>6-SNAPSHOT</version>
+    <version>6</version>
 
     <organization>
         <name>Adaptavist.com Ltd</name>
@@ -417,7 +417,7 @@
     <scm>
         <developerConnection>scm:git:ssh://git@stash.adaptavist.com:7999/sr/scriptrunner-parent-pom.git
         </developerConnection>
-        <tag>HEAD</tag>
+        <tag>scriptrunner-parent-6</tag>
     </scm>
 
     <properties>
