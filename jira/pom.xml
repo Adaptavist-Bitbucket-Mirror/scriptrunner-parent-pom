@@ -41,6 +41,28 @@
                 <artifactId>groovyrunner</artifactId>
                 <version>${scriptrunner.jira.version}</version>
                 <scope>provided</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.onresolve.scriptrunner.platform</groupId>
+                        <artifactId>scriptrunner-test-libraries-jira</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>jndi</groupId>
+                        <artifactId>jndi</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>jta</groupId>
+                        <artifactId>jta</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>is.origo.jira</groupId>
+                        <artifactId>tempo-plugin</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.tempoplugin</groupId>
+                        <artifactId>tempo-core</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
 
             <!-- ScriptRunner test libraries -->
@@ -59,6 +81,12 @@
                 <artifactId>jira-api</artifactId>
                 <version>${jira.version}</version>
                 <scope>provided</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>jta</groupId>
+                        <artifactId>jta</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>com.atlassian.jira</groupId>

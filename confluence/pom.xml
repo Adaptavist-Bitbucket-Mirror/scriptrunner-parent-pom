@@ -38,6 +38,12 @@
                 <artifactId>groovyrunner</artifactId>
                 <version>${scriptrunner.confluence.version}</version>
                 <scope>provided</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.onresolve.scriptrunner.platform</groupId>
+                        <artifactId>scriptrunner-test-libraries-jira</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
 
             <!-- ScriptRunner test libraries -->
