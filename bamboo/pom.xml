@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+
+    <parent>
+        <groupId>com.adaptavist.pom</groupId>
+        <artifactId>scriptrunner-parent</artifactId>
+        <version>8-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>scriptrunner-bamboo-parent</artifactId>
+    <version>8-SNAPSHOT</version>
+
+    <name>ScriptRunner for Bamboo - base plugin pom</name>
+    <description>Base pom for ScriptRunner for Bamboo script plugins.</description>
+
+    <properties>
+        <!-- ScriptRunner version -->
+        <scriptrunner.bamboo.version>5.1.4</scriptrunner.bamboo.version>
+
+        <!-- Bamboo version-->
+        <bamboo.version>6.2.2</bamboo.version>
+        <bamboo.data.version>${bamboo.version}</bamboo.data.version>
+
+        <bamboo.host>${product.host}</bamboo.host>
+        <bamboo.port>${product.port}</bamboo.port>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- ScriptRunner core -->
+            <dependency>
+                <groupId>com.onresolve.bamboo.groovy</groupId>
+                <artifactId>groovyrunner</artifactId>
+                <version>${scriptrunner.bamboo.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <!-- ScriptRunner test libraries -->
+<!--
+            <dependency>
+                <groupId>com.onresolve.scriptrunner.platform</groupId>
+                <artifactId>scriptrunner-test-libraries-bamboo</artifactId>
+                <version>${scriptrunner.bamboo.version}</version>
+                <scope>test</scope>
+            </dependency>
+-->
+
+            <!-- Bamboo -->
+
+            <dependency>
+                <groupId>com.atlassian.bamboo</groupId>
+                <artifactId>atlassian-bamboo-api</artifactId>
+                <version>${bamboo.version}</version>
+                <scope>provided</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.atlassian.maven.plugins</groupId>
+                    <artifactId>maven-bamboo-plugin</artifactId>
+                    <version>${amps.version}</version>
+                    <extensions>true</extensions>
+                    <configuration>
+
+                        <skipAmpsPomCheck>true</skipAmpsPomCheck>
+                        <skipAllPrompts>true</skipAllPrompts>
+                        <enableFastdev>false</enableFastdev>
+                        <extractDependencies>false</extractDependencies>
+                        <allow.google.tracking>false</allow.google.tracking>
+
+                        <productVersion>${bamboo.version}</productVersion>
+                        <productDataVersion>${bamboo.data.version}</productDataVersion>
+                        <server>${bamboo.host}</server>
+                        <httpPort>${bamboo.port}</httpPort>
+
+                        <pluginArtifacts>
+<!--
+                            <pluginArtifact>
+                                <groupId>com.onresolve.scriptrunner.platform</groupId>
+                                <artifactId>scriptrunner-test-libraries-bamboo</artifactId>
+                                <version>${scriptrunner.bamboo.version}</version>
+                            </pluginArtifact>
+-->
+
+                            <pluginArtifact>
+                                <groupId>com.onresolve.bamboo.groovy</groupId>
+                                <artifactId>groovyrunner</artifactId>
+                                <version>${scriptrunner.bamboo.version}</version>
+                            </pluginArtifact>
+
+                            <pluginArtifact>
+                                <groupId>com.atlassian.labs.plugins</groupId>
+                                <artifactId>quickreload</artifactId>
+                                <version>${quick.reload.version}</version>
+                            </pluginArtifact>
+                        </pluginArtifacts>
+
+                        <systemPropertyVariables>
+                            <atlassian.dev.mode>${dev.mode}</atlassian.dev.mode>
+                            <plugin.script.roots>${plugin.script.roots}</plugin.script.roots>
+                        </systemPropertyVariables>
+
+                        <instructions>
+                            <Import-Package>
+                                org.springframework.osgi.*;resolution:="optional",
+                                org.eclipse.gemini.blueprint.*;resolution:="optional",
+                                *
+                            </Import-Package>
+
+                            <!-- Ensure plugin is spring powered -->
+                            <Spring-Context>*</Spring-Context>
+
+                            <Require-Bundle>
+                                com.onresolve.bamboo.groovy.groovyrunner
+                            </Require-Bundle>
+                        </instructions>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>standard-dependencies</id>
+
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+
+            <dependencies>
+                <dependency>
+                    <groupId>com.onresolve.bamboo.groovy</groupId>
+                    <artifactId>groovyrunner</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>com.atlassian.bamboo</groupId>
+                    <artifactId>atlassian-bamboo-api</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>com.atlassian.sal</groupId>
+                    <artifactId>sal-api</artifactId>
+                </dependency>
+            </dependencies>
+        </profile>
+
+        <profile>
+            <id>standard-build</id>
+
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.gmavenplus</groupId>
+                        <artifactId>gmavenplus-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>com.atlassian.maven.plugins</groupId>
+                        <artifactId>maven-bamboo-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.adaptavist</groupId>
+    <packaging>pom</packaging>
+
+    <groupId>com.adaptavist.pom</groupId>
     <artifactId>scriptrunner-parent</artifactId>
     <version>8-SNAPSHOT</version>
 
@@ -13,79 +16,70 @@
     </organization>
 
     <name>ScriptRunner script plugins base pom</name>
-    <description>Base pom for ScriptRunner script plugins.</description>
-    <packaging>pom</packaging>
+    <description>Parent pom for product specific ScriptRunner script plugin base poms.</description>
 
-    <dependencies>
+    <modules>
+        <module>bamboo</module>
+        <module>bitbucket</module>
+        <module>confluence</module>
+        <module>jira</module>
+    </modules>
 
-        <!--could optionally include all script runner versions here-->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-            <version>4.1.7.RELEASE</version>
-            <scope>provided</scope>
-        </dependency>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <!--this is here because it's required by the monkey patch manager :(-->
-        <dependency>
-            <groupId>com.atlassian.jira.plugins</groupId>
-            <artifactId>jira-greenhopper-plugin</artifactId>
-            <version>7.0.10</version>
-            <scope>provided</scope>
-        </dependency>
+        <!-- NOTE: We now default to Java 8, ensure you override this if you need backwards compatibility -->
+        <java.version>1.8</java.version>
 
-    </dependencies>
+        <!-- Atlassian AMPS version -->
+        <amps.version>6.3.6</amps.version>
+
+        <!-- Internal application components -->
+        <spring.version>4.1.7.RELEASE</spring.version>
+        <atlassian.sal.version>3.0.0</atlassian.sal.version>
+
+        <!-- Development tool versions -->
+        <quick.reload.version>2.0.0</quick.reload.version>
+
+        <!-- Default plugin script roots -->
+        <plugin.script.roots>${project.basedir}/src/main/resources,${project.basedir}/src/test/groovy</plugin.script.roots>
+
+        <!-- Run the Atlassian product in dev mode? -->
+        <dev.mode>true</dev.mode>
+
+        <!-- Default hostname & port for Atlassian product -->
+        <product.host>localhost</product.host>
+        <product.port>8080</product.port>
+
+        <!-- This should match the groovy version in ScriptRunner -->
+        <groovy.version>2.4.6</groovy.version>
+
+        <!-- Default plugin key -->
+        <atlassian.plugin.key>${project.groupId}.${project.artifactId}</atlassian.plugin.key>
+    </properties>
 
     <dependencyManagement>
         <dependencies>
-
+            <!-- Spring -->
             <dependency>
-                <groupId>com.onresolve.jira.groovy</groupId>
-                <artifactId>groovyrunner</artifactId>
-                <version>${scriptrunner.version}</version>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>
+                <version>${spring.version}</version>
                 <scope>provided</scope>
             </dependency>
 
+            <!-- Common Atlassian libraries -->
             <dependency>
-                <groupId>com.onresolve.confluence.groovy</groupId>
-                <artifactId>groovyrunner</artifactId>
-                <version>${scriptrunner.version}</version>
+                <groupId>com.atlassian.sal</groupId>
+                <artifactId>sal-api</artifactId>
+                <version>${atlassian.sal.version}</version>
                 <scope>provided</scope>
             </dependency>
-
-            <dependency>
-                <groupId>com.onresolve.stash.groovy</groupId>
-                <artifactId>groovyrunner</artifactId>
-                <version>${scriptrunner.version}</version>
-                <scope>provided</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>com.onresolve.scriptrunner.platform</groupId>
-                <artifactId>scriptrunner-test-libraries-jira</artifactId>
-                <version>${scriptrunner.version}</version>
-                <scope>test</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>com.onresolve.scriptrunner.platform</groupId>
-                <artifactId>scriptrunner-test-libraries-confluence</artifactId>
-                <version>${scriptrunner.version}</version>
-                <scope>test</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>com.onresolve.scriptrunner.platform</groupId>
-                <artifactId>scriptrunner-test-libraries-bitbucket</artifactId>
-                <version>${scriptrunner.version}</version>
-                <scope>test</scope>
-            </dependency>
-
         </dependencies>
     </dependencyManagement>
 
     <build>
-
         <sourceDirectory>src/main/groovy</sourceDirectory>
 
         <!--always include source groovy files as source too, while some places require it-->
@@ -111,6 +105,15 @@
 
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.7.0</version>
+                    <configuration>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                    </configuration>
+                </plugin>
+
                 <plugin>
                     <groupId>org.codehaus.gmavenplus</groupId>
                     <artifactId>gmavenplus-plugin</artifactId>
@@ -159,230 +162,10 @@
                         <dependency>
                             <groupId>org.codehaus.groovy</groupId>
                             <artifactId>groovy-all</artifactId>
-                            <version>2.4.6</version> <!-- this version should match the scriptrunner version -->
+                            <version>${groovy.version}</version> <!-- this version should match the scriptrunner version -->
                             <scope>runtime</scope>
                         </dependency>
                     </dependencies>
-                </plugin>
-
-                <plugin>
-                    <groupId>com.atlassian.maven.plugins</groupId>
-                    <artifactId>maven-confluence-plugin</artifactId>
-                    <version>${amps.version}</version>
-                    <extensions>true</extensions>
-                    <configuration>
-
-                        <skipAmpsPomCheck>true</skipAmpsPomCheck>
-
-                        <productVersion>${confluence.version}</productVersion>
-                        <productDataVersion>${confluence.data.version}</productDataVersion>
-
-                        <pluginArtifacts>
-                            <pluginArtifact>
-                                <groupId>com.onresolve.confluence.groovy</groupId>
-                                <artifactId>groovyrunner</artifactId>
-                                <version>${scriptrunner.version}</version>
-                            </pluginArtifact>
-
-                            <pluginArtifact>
-                                <groupId>com.atlassian.labs.plugins</groupId>
-                                <artifactId>quickreload</artifactId>
-                                <version>${quick.reload.version}</version>
-                            </pluginArtifact>
-                        </pluginArtifacts>
-                        <enableQuickReload>true</enableQuickReload>
-                        <enableFastdev>false</enableFastdev>
-
-                        <systemPropertyVariables>
-                            <atlassian.dev.mode>false</atlassian.dev.mode>
-                            <plugin.script.roots>
-                                ${project.basedir}/src/main/resources,${project.basedir}/src/test/groovy
-                            </plugin.script.roots>
-                        </systemPropertyVariables>
-
-                        <httpPort>8080</httpPort>
-
-                        <enableQuickReload>true</enableQuickReload>
-                        <enableFastdev>false</enableFastdev>
-
-                        <!-- See here for an explanation of default instructions: -->
-                        <!-- https://developer.atlassian.com/docs/advanced-topics/configuration-of-instructions-in-atlassian-plugins -->
-                        <instructions>
-                            <!-- Add package to export here -->
-                            <!--<Export-Package>-->
-                            <!--com.foo.api,-->
-                            <!--</Export-Package>-->
-
-                            <!-- Add package import here -->
-                            <Import-Package>
-                                org.springframework.osgi.*;resolution:="optional",
-                                org.eclipse.gemini.blueprint.*;resolution:="optional",
-                                *
-                            </Import-Package>
-
-                            <Require-Bundle>
-                                com.onresolve.confluence.groovy.groovyrunner
-                            </Require-Bundle>
-
-                            <!-- Ensure plugin is spring powered -->
-                            <Spring-Context>*</Spring-Context>
-                        </instructions>
-                    </configuration>
-                </plugin>
-
-                <plugin>
-                    <groupId>com.atlassian.maven.plugins</groupId>
-                    <artifactId>maven-jira-plugin</artifactId>
-                    <version>${amps.version}</version>
-                    <extensions>true</extensions>
-                    <configuration>
-
-                        <skipAmpsPomCheck>true</skipAmpsPomCheck>
-
-                        <productVersion>${jira.version}</productVersion>
-                        <productDataVersion>${jira.version}</productDataVersion>
-
-                        <pluginArtifacts>
-                            <pluginArtifact>
-                                <groupId>com.onresolve.scriptrunner.platform</groupId>
-                                <artifactId>scriptrunner-test-libraries-jira</artifactId>
-                                <version>${scriptrunner.version}</version>
-                            </pluginArtifact>
-
-                            <pluginArtifact>
-                                <groupId>com.onresolve.jira.groovy</groupId>
-                                <artifactId>groovyrunner</artifactId>
-                                <version>${scriptrunner.version}</version>
-                            </pluginArtifact>
-
-                            <pluginArtifact>
-                                <groupId>com.atlassian.labs.plugins</groupId>
-                                <artifactId>quickreload</artifactId>
-                                <version>${quick.reload.version}</version>
-                            </pluginArtifact>
-                        </pluginArtifacts>
-                        <enableQuickReload>false</enableQuickReload>
-                        <enableFastdev>false</enableFastdev>
-
-                        <systemPropertyVariables>
-                            <atlassian.dev.mode>false</atlassian.dev.mode>
-                            <plugin.script.roots>
-                                ${project.basedir}/src/main/resources,${project.basedir}/src/test/groovy
-                            </plugin.script.roots>
-                            <jira.websudo.is.disabled>true</jira.websudo.is.disabled>
-                        </systemPropertyVariables>
-
-                        <httpPort>8080</httpPort>
-
-                        <instructions>
-                            <!-- modify resolution and version of final * -->
-
-                            <Import-Package>
-                                org.springframework.osgi.*;resolution:="optional",
-                                org.eclipse.gemini.blueprint.*;resolution:="optional",
-                                *
-                            </Import-Package>
-
-                            <!-- Ensure plugin is spring powered -->
-                            <Spring-Context>*</Spring-Context>
-
-                            <Require-Bundle>
-                                com.onresolve.jira.groovy.groovyrunner
-                            </Require-Bundle>
-
-                            <DynamicImport-Package>*</DynamicImport-Package>
-
-                        </instructions>
-
-                        <testSourceDirectory>src/test/groovy</testSourceDirectory>
-
-                        <testGroups>
-                            <testGroup>
-                                <id>jira-integration</id>
-                                <productIds>
-                                    <productId>jira</productId>
-                                </productIds>
-                                <includes>
-                                    <include>**/*Spec.*</include>
-                                    <include>**/*Test.*</include>
-                                </includes>
-
-                                <excludes>
-                                    <exclude>**/func/**</exclude>
-                                </excludes>
-                            </testGroup>
-                        </testGroups>
-
-                    </configuration>
-                </plugin>
-
-                <plugin>
-                    <groupId>com.atlassian.maven.plugins</groupId>
-                    <artifactId>bitbucket-maven-plugin</artifactId>
-                    <version>${amps.version}</version>
-                    <extensions>true</extensions>
-                    <configuration>
-
-                        <skipAmpsPomCheck>true</skipAmpsPomCheck>
-
-                        <products>
-                            <product>
-                                <id>bitbucket</id>
-                                <instanceId>bitbucket</instanceId>
-                                <version>${bitbucket.version}</version>
-                                <dataVersion>${bitbucket.data.version}</dataVersion>
-                            </product>
-                        </products>
-
-                        <pluginArtifacts>
-                            <pluginArtifact>
-                                <groupId>com.onresolve.stash.groovy</groupId>
-                                <artifactId>groovyrunner</artifactId>
-                                <version>${scriptrunner.version}</version>
-                            </pluginArtifact>
-
-                            <pluginArtifact>
-                                <groupId>com.atlassian.labs.plugins</groupId>
-                                <artifactId>quickreload</artifactId>
-                                <version>${quick.reload.version}</version>
-                            </pluginArtifact>
-                        </pluginArtifacts>
-                        <enableQuickReload>true</enableQuickReload>
-                        <enableFastdev>false</enableFastdev>
-
-                        <systemPropertyVariables>
-                            <atlassian.dev.mode>false</atlassian.dev.mode>
-                            <plugin.script.roots>
-                                ${project.basedir}/src/main/resources,${project.basedir}/src/test/groovy
-                            </plugin.script.roots>
-                        </systemPropertyVariables>
-
-                        <httpPort>8080</httpPort>
-
-                        <instructions>
-
-                            <!-- Add package to export here -->
-                            <Export-Package>
-                                com.foo.api,
-                            </Export-Package>
-
-                            <!-- Add package import here -->
-                            <Import-Package>
-                                org.springframework.osgi.*;resolution:="optional",
-                                org.eclipse.gemini.blueprint.*;resolution:="optional",
-                                *
-                            </Import-Package>
-
-                            <!-- Ensure plugin is Spring powered -->
-                            <Spring-Context>*</Spring-Context>
-
-                            <Require-Bundle>
-                                com.onresolve.stash.groovy.groovyrunner
-                            </Require-Bundle>
-
-                            <DynamicImport-Package>*</DynamicImport-Package>
-                        </instructions>
-                    </configuration>
                 </plugin>
 
                 <plugin>
@@ -396,11 +179,49 @@
                         </dependency>
                     </dependencies>
                 </plugin>
-
             </plugins>
         </pluginManagement>
-
     </build>
+
+    <repositories>
+        <repository>
+            <id>adaptavist-external</id>
+            <url>https://nexus.adaptavist.com/content/repositories/external</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>atlassian-public</id>
+            <url>https://maven.atlassian.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+                <checksumPolicy>warn</checksumPolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>atlassian-public</id>
+            <url>https://maven.atlassian.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+                <checksumPolicy>warn</checksumPolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 
     <distributionManagement>
         <repository>
@@ -419,22 +240,5 @@
         </developerConnection>
         <tag>HEAD</tag>
     </scm>
-
-    <properties>
-        <confluence.version>5.10.4</confluence.version>
-        <confluence.data.version>5.10.4</confluence.data.version>
-
-        <jira.version>7.2.0</jira.version>
-        <jira.data.version>7.2.0</jira.data.version>
-        <jira.software.application.version>7.2.0</jira.software.application.version>
-
-        <bitbucket.version>4.9.1</bitbucket.version>
-        <bitbucket.data.version>4.9.1</bitbucket.data.version>
-
-        <scriptrunner.version>4.3.9</scriptrunner.version>
-        <amps.version>6.2.8</amps.version>
-
-        <quick.reload.version>1.30.5</quick.reload.version>
-    </properties>
 
 </project>
