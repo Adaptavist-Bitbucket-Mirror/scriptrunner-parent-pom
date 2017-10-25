@@ -8,19 +8,19 @@
 
     <parent>
         <groupId>com.adaptavist.pom</groupId>
-        <artifactId>scriptrunner-parent</artifactId>
+        <artifactId>scriptrunner-base</artifactId>
         <version>8-SNAPSHOT</version>
     </parent>
 
-    <artifactId>scriptrunner-bitbucket-parent</artifactId>
+    <artifactId>scriptrunner-bitbucket-base</artifactId>
     <version>8-SNAPSHOT</version>
 
     <name>ScriptRunner for Bitbucket - base plugin pom</name>
     <description>Base pom for ScriptRunner for Bitbucket script plugins.</description>
 
     <properties>
-        <!-- ScriptRunner version -->
-        <scriptrunner.bitbucket.version>5.1.8</scriptrunner.bitbucket.version>
+        <!-- ScriptRunner version for Bitbucket -->
+        <scriptrunner.version>5.1.8</scriptrunner.version>
 
         <!-- Bitbucket version-->
         <bitbucket.version>5.5.0</bitbucket.version>
@@ -36,7 +36,7 @@
             <dependency>
                 <groupId>com.onresolve.stash.groovy</groupId>
                 <artifactId>groovyrunner</artifactId>
-                <version>${scriptrunner.bitbucket.version}</version>
+                <version>${scriptrunner.version}</version>
                 <scope>provided</scope>
             </dependency>
 
@@ -45,7 +45,7 @@
             <dependency>
                 <groupId>com.onresolve.scriptrunner.platform</groupId>
                 <artifactId>scriptrunner-test-libraries-bitbucket</artifactId>
-                <version>${scriptrunner.bitbucket.version}</version>
+                <version>${scriptrunner.version}</version>
                 <scope>test</scope>
             </dependency>
 -->
@@ -92,14 +92,14 @@
                             <pluginArtifact>
                                 <groupId>com.onresolve.scriptrunner.platform</groupId>
                                 <artifactId>scriptrunner-test-libraries-bitbucket</artifactId>
-                                <version>${scriptrunner.bitbucket.version}</version>
+                                <version>${scriptrunner.version}</version>
                             </pluginArtifact>
 -->
 
                             <pluginArtifact>
                                 <groupId>com.onresolve.stash.groovy</groupId>
                                 <artifactId>groovyrunner</artifactId>
-                                <version>${scriptrunner.bitbucket.version}</version>
+                                <version>${scriptrunner.version}</version>
                             </pluginArtifact>
 
                             <pluginArtifact>
@@ -133,50 +133,4 @@
             </plugins>
         </pluginManagement>
     </build>
-
-    <profiles>
-        <profile>
-            <id>standard-dependencies</id>
-
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-
-            <dependencies>
-                <dependency>
-                    <groupId>com.onresolve.stash.groovy</groupId>
-                    <artifactId>groovyrunner</artifactId>
-                </dependency>
-                <dependency>
-                    <groupId>com.atlassian.bitbucket.server</groupId>
-                    <artifactId>bitbucket-api</artifactId>
-                </dependency>
-                <dependency>
-                    <groupId>com.atlassian.bitbucket.server</groupId>
-                    <artifactId>bitbucket-spi</artifactId>
-                </dependency>
-            </dependencies>
-        </profile>
-
-        <profile>
-            <id>standard-build</id>
-
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.codehaus.gmavenplus</groupId>
-                        <artifactId>gmavenplus-plugin</artifactId>
-                    </plugin>
-                    <plugin>
-                        <groupId>com.atlassian.maven.plugins</groupId>
-                        <artifactId>bitbucket-maven-plugin</artifactId>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 </project>

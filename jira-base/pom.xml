@@ -8,19 +8,19 @@
 
     <parent>
         <groupId>com.adaptavist.pom</groupId>
-        <artifactId>scriptrunner-parent</artifactId>
+        <artifactId>scriptrunner-base</artifactId>
         <version>8-SNAPSHOT</version>
     </parent>
 
-    <artifactId>scriptrunner-jira-parent</artifactId>
+    <artifactId>scriptrunner-jira-base</artifactId>
     <version>8-SNAPSHOT</version>
 
     <name>ScriptRunner for Jira - base plugin pom</name>
     <description>Base pom for ScriptRunner for Jira script plugins.</description>
 
     <properties>
-        <!-- ScriptRunner version -->
-        <scriptrunner.jira.version>5.1.7</scriptrunner.jira.version>
+        <!-- ScriptRunner version for Jira -->
+        <scriptrunner.version>5.1.7</scriptrunner.version>
 
         <!-- Jira version-->
         <jira.version>7.5.1</jira.version>
@@ -39,7 +39,7 @@
             <dependency>
                 <groupId>com.onresolve.jira.groovy</groupId>
                 <artifactId>groovyrunner</artifactId>
-                <version>${scriptrunner.jira.version}</version>
+                <version>${scriptrunner.version}</version>
                 <scope>provided</scope>
                 <exclusions>
                     <exclusion>
@@ -70,7 +70,7 @@
             <dependency>
                 <groupId>com.onresolve.scriptrunner.platform</groupId>
                 <artifactId>scriptrunner-test-libraries-jira</artifactId>
-                <version>${scriptrunner.jira.version}</version>
+                <version>${scriptrunner.version}</version>
                 <scope>test</scope>
             </dependency>
 -->
@@ -134,14 +134,14 @@
                             <pluginArtifact>
                                 <groupId>com.onresolve.scriptrunner.platform</groupId>
                                 <artifactId>scriptrunner-test-libraries-jira</artifactId>
-                                <version>${scriptrunner.jira.version}</version>
+                                <version>${scriptrunner.version}</version>
                             </pluginArtifact>
 -->
 
                             <pluginArtifact>
                                 <groupId>com.onresolve.jira.groovy</groupId>
                                 <artifactId>groovyrunner</artifactId>
-                                <version>${scriptrunner.jira.version}</version>
+                                <version>${scriptrunner.version}</version>
                             </pluginArtifact>
 
                             <pluginArtifact>
@@ -176,50 +176,4 @@
             </plugins>
         </pluginManagement>
     </build>
-
-    <profiles>
-        <profile>
-            <id>standard-dependencies</id>
-
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-
-            <dependencies>
-                <dependency>
-                    <groupId>com.onresolve.jira.groovy</groupId>
-                    <artifactId>groovyrunner</artifactId>
-                </dependency>
-                <dependency>
-                    <groupId>com.atlassian.jira</groupId>
-                    <artifactId>jira-api</artifactId>
-                </dependency>
-                <dependency>
-                    <groupId>com.atlassian.sal</groupId>
-                    <artifactId>sal-api</artifactId>
-                </dependency>
-            </dependencies>
-        </profile>
-
-        <profile>
-            <id>standard-build</id>
-
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.codehaus.gmavenplus</groupId>
-                        <artifactId>gmavenplus-plugin</artifactId>
-                    </plugin>
-                    <plugin>
-                        <groupId>com.atlassian.maven.plugins</groupId>
-                        <artifactId>maven-jira-plugin</artifactId>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 </project>

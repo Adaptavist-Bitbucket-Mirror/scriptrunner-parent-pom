@@ -8,19 +8,19 @@
 
     <parent>
         <groupId>com.adaptavist.pom</groupId>
-        <artifactId>scriptrunner-parent</artifactId>
+        <artifactId>scriptrunner-base</artifactId>
         <version>8-SNAPSHOT</version>
     </parent>
 
-    <artifactId>scriptrunner-confluence-parent</artifactId>
+    <artifactId>scriptrunner-confluence-base</artifactId>
     <version>8-SNAPSHOT</version>
 
     <name>ScriptRunner for Confluence - base plugin pom</name>
     <description>Base pom for ScriptRunner for Confluence script plugins.</description>
 
     <properties>
-        <!-- ScriptRunner version -->
-        <scriptrunner.confluence.version>5.1.7</scriptrunner.confluence.version>
+        <!-- ScriptRunner version for Confluence -->
+        <scriptrunner.version>5.1.7</scriptrunner.version>
 
         <!-- Confluence version-->
         <confluence.version>6.4.3</confluence.version>
@@ -36,7 +36,7 @@
             <dependency>
                 <groupId>com.onresolve.confluence.groovy</groupId>
                 <artifactId>groovyrunner</artifactId>
-                <version>${scriptrunner.confluence.version}</version>
+                <version>${scriptrunner.version}</version>
                 <scope>provided</scope>
                 <exclusions>
                     <exclusion>
@@ -51,7 +51,7 @@
             <dependency>
                 <groupId>com.onresolve.scriptrunner.platform</groupId>
                 <artifactId>scriptrunner-test-libraries-confluence</artifactId>
-                <version>${scriptrunner.confluence.version}</version>
+                <version>${scriptrunner.version}</version>
                 <scope>test</scope>
             </dependency>
 -->
@@ -92,14 +92,14 @@
                             <pluginArtifact>
                                 <groupId>com.onresolve.scriptrunner.platform</groupId>
                                 <artifactId>scriptrunner-test-libraries-confluence</artifactId>
-                                <version>${scriptrunner.confluence.version}</version>
+                                <version>${scriptrunner.version}</version>
                             </pluginArtifact>
 -->
 
                             <pluginArtifact>
                                 <groupId>com.onresolve.confluence.groovy</groupId>
                                 <artifactId>groovyrunner</artifactId>
-                                <version>${scriptrunner.confluence.version}</version>
+                                <version>${scriptrunner.version}</version>
                             </pluginArtifact>
 
                             <pluginArtifact>
@@ -133,50 +133,4 @@
             </plugins>
         </pluginManagement>
     </build>
-
-    <profiles>
-        <profile>
-            <id>standard-dependencies</id>
-
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-
-            <dependencies>
-                <dependency>
-                    <groupId>com.onresolve.confluence.groovy</groupId>
-                    <artifactId>groovyrunner</artifactId>
-                </dependency>
-                <dependency>
-                    <groupId>com.atlassian.confluence</groupId>
-                    <artifactId>confluence</artifactId>
-                </dependency>
-                <dependency>
-                    <groupId>com.atlassian.sal</groupId>
-                    <artifactId>sal-api</artifactId>
-                </dependency>
-            </dependencies>
-        </profile>
-
-        <profile>
-            <id>standard-build</id>
-
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.codehaus.gmavenplus</groupId>
-                        <artifactId>gmavenplus-plugin</artifactId>
-                    </plugin>
-                    <plugin>
-                        <groupId>com.atlassian.maven.plugins</groupId>
-                        <artifactId>maven-confluence-plugin</artifactId>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 </project>
