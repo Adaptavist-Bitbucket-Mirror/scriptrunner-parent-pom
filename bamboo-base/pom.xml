@@ -81,7 +81,7 @@
                         <skipAllPrompts>true</skipAllPrompts>
                         <enableFastdev>false</enableFastdev>
                         <extractDependencies>false</extractDependencies>
-                        <allow.google.tracking>false</allow.google.tracking>
+                        <allowGoogleTracking>false</allowGoogleTracking>
 
                         <productVersion>${bamboo.version}</productVersion>
                         <productDataVersion>${bamboo.data.version}</productDataVersion>

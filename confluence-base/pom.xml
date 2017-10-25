@@ -80,7 +80,7 @@
                         <skipAllPrompts>true</skipAllPrompts>
                         <enableFastdev>false</enableFastdev>
                         <extractDependencies>false</extractDependencies>
-                        <allow.google.tracking>false</allow.google.tracking>
+                        <allowGoogleTracking>false</allowGoogleTracking>
 
                         <productVersion>${confluence.version}</productVersion>
                         <productDataVersion>${confluence.data.version}</productDataVersion>

@@ -111,7 +111,7 @@
                         <skipAllPrompts>true</skipAllPrompts>
                         <enableFastdev>false</enableFastdev>
                         <extractDependencies>false</extractDependencies>
-                        <allow.google.tracking>false</allow.google.tracking>
+                        <allowGoogleTracking>false</allowGoogleTracking>
 
                         <productVersion>${jira.version}</productVersion>
                         <productDataVersion>${jira.data.version}</productDataVersion>
