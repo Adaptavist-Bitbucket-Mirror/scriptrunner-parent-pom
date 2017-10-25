@@ -18,6 +18,10 @@
     <name>ScriptRunner for Bamboo - base plugin pom</name>
     <description>Base pom for ScriptRunner for Bamboo script plugins.</description>
 
+    <modules>
+        <module>bamboo-standard</module>
+    </modules>
+
     <properties>
         <!-- ScriptRunner version for Bamboo -->
         <scriptrunner.version>5.1.4</scriptrunner.version>

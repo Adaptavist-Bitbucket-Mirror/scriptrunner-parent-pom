@@ -41,6 +41,6 @@ eg:
 
     <parent>
         <groupId>com.adaptavist.pom</groupId>
-        <artifactId>scriptrunner-jira-std</artifactId>
+        <artifactId>scriptrunner-jira-standard</artifactId>
         <version>8</version>
     </parent>

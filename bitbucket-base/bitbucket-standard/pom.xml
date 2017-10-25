@@ -8,29 +8,28 @@
 
     <parent>
         <groupId>com.adaptavist.pom</groupId>
-        <artifactId>scriptrunner-confluence-base</artifactId>
+        <artifactId>scriptrunner-bitbucket-base</artifactId>
         <version>8-SNAPSHOT</version>
-        <relativePath>../confluence-base/pom.xml</relativePath>
     </parent>
 
-    <artifactId>scriptrunner-confluence-std</artifactId>
+    <artifactId>scriptrunner-bitbucket-standard</artifactId>
     <version>8-SNAPSHOT</version>
 
-    <name>ScriptRunner for Confluence - base plugin pom</name>
-    <description>Base pom for ScriptRunner for Confluence script plugins with standard dependencies and build.</description>
+    <name>ScriptRunner for Bitbucket - standard plugin pom</name>
+    <description>Base pom for ScriptRunner for Bitbucket script plugins with standard dependencies and build.</description>
 
     <dependencies>
         <dependency>
-            <groupId>com.onresolve.confluence.groovy</groupId>
+            <groupId>com.onresolve.stash.groovy</groupId>
             <artifactId>groovyrunner</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.atlassian.confluence</groupId>
-            <artifactId>confluence</artifactId>
+            <groupId>com.atlassian.bitbucket.server</groupId>
+            <artifactId>bitbucket-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.atlassian.sal</groupId>
-            <artifactId>sal-api</artifactId>
+            <groupId>com.atlassian.bitbucket.server</groupId>
+            <artifactId>bitbucket-spi</artifactId>
         </dependency>
     </dependencies>
 
@@ -42,7 +41,7 @@
             </plugin>
             <plugin>
                 <groupId>com.atlassian.maven.plugins</groupId>
-                <artifactId>maven-confluence-plugin</artifactId>
+                <artifactId>bitbucket-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>

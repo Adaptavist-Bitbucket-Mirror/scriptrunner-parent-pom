@@ -18,6 +18,10 @@
     <name>ScriptRunner for Jira - base plugin pom</name>
     <description>Base pom for ScriptRunner for Jira script plugins.</description>
 
+    <modules>
+        <module>jira-standard</module>
+    </modules>
+
     <properties>
         <!-- ScriptRunner version for Jira -->
         <scriptrunner.version>5.1.7</scriptrunner.version>

@@ -20,13 +20,9 @@
 
     <modules>
         <module>bamboo-base</module>
-        <module>bamboo-std</module>
         <module>bitbucket-base</module>
-        <module>bitbucket-std</module>
         <module>confluence-base</module>
-        <module>confluence-std</module>
         <module>jira-base</module>
-        <module>jira-std</module>
     </modules>
 
     <properties>

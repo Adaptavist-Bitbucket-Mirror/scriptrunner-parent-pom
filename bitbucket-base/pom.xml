@@ -30,6 +30,10 @@
         <bitbucket.port>${product.port}</bitbucket.port>
     </properties>
 
+    <modules>
+        <module>bitbucket-standard</module>
+    </modules>
+
     <dependencyManagement>
         <dependencies>
             <!-- ScriptRunner core -->
