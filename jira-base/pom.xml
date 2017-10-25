@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+
+    <parent>
+        <groupId>com.adaptavist.pom</groupId>
+        <artifactId>scriptrunner-base</artifactId>
+        <version>8-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>scriptrunner-jira-base</artifactId>
+    <version>8-SNAPSHOT</version>
+
+    <name>ScriptRunner for Jira - base plugin pom</name>
+    <description>Base pom for ScriptRunner for Jira script plugins.</description>
+
+    <modules>
+        <module>jira-standard</module>
+    </modules>
+
+    <properties>
+        <!-- ScriptRunner version for Jira -->
+        <scriptrunner.version>5.1.7</scriptrunner.version>
+
+        <!-- Jira version-->
+        <jira.version>7.5.1</jira.version>
+
+        <jira.data.version>${jira.version}</jira.data.version>
+        <jira.software.application.version>${jira.version}</jira.software.application.version>
+        <jira.servicedesk.application.version>3.8.2</jira.servicedesk.application.version>
+
+        <jira.host>${product.host}</jira.host>
+        <jira.port>${product.port}</jira.port>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- ScriptRunner core -->
+            <dependency>
+                <groupId>com.onresolve.jira.groovy</groupId>
+                <artifactId>groovyrunner</artifactId>
+                <version>${scriptrunner.version}</version>
+                <scope>provided</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.onresolve.scriptrunner.platform</groupId>
+                        <artifactId>scriptrunner-test-libraries-jira</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>jndi</groupId>
+                        <artifactId>jndi</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>jta</groupId>
+                        <artifactId>jta</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>is.origo.jira</groupId>
+                        <artifactId>tempo-plugin</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.tempoplugin</groupId>
+                        <artifactId>tempo-core</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!-- ScriptRunner test libraries -->
+<!--
+            <dependency>
+                <groupId>com.onresolve.scriptrunner.platform</groupId>
+                <artifactId>scriptrunner-test-libraries-jira</artifactId>
+                <version>${scriptrunner.version}</version>
+                <scope>test</scope>
+            </dependency>
+-->
+
+            <!-- Jira -->
+            <dependency>
+                <groupId>com.atlassian.jira</groupId>
+                <artifactId>jira-api</artifactId>
+                <version>${jira.version}</version>
+                <scope>provided</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>jta</groupId>
+                        <artifactId>jta</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>com.atlassian.jira</groupId>
+                <artifactId>jira-core</artifactId>
+                <version>${jira.version}</version>
+                <scope>provided</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.atlassian.maven.plugins</groupId>
+                    <artifactId>maven-jira-plugin</artifactId>
+                    <version>${amps.version}</version>
+                    <extensions>true</extensions>
+                    <configuration>
+
+                        <skipAmpsPomCheck>true</skipAmpsPomCheck>
+                        <skipAllPrompts>true</skipAllPrompts>
+                        <enableFastdev>false</enableFastdev>
+                        <extractDependencies>false</extractDependencies>
+                        <allowGoogleTracking>false</allowGoogleTracking>
+
+                        <productVersion>${jira.version}</productVersion>
+                        <productDataVersion>${jira.data.version}</productDataVersion>
+                        <server>${jira.host}</server>
+                        <httpPort>${jira.port}</httpPort>
+
+                        <pluginArtifacts>
+<!--
+                            <pluginArtifact>
+                                <groupId>com.onresolve.scriptrunner.platform</groupId>
+                                <artifactId>scriptrunner-test-libraries-jira</artifactId>
+                                <version>${scriptrunner.version}</version>
+                            </pluginArtifact>
+-->
+
+                            <pluginArtifact>
+                                <groupId>com.onresolve.jira.groovy</groupId>
+                                <artifactId>groovyrunner</artifactId>
+                                <version>${scriptrunner.version}</version>
+                            </pluginArtifact>
+
+                            <pluginArtifact>
+                                <groupId>com.atlassian.labs.plugins</groupId>
+                                <artifactId>quickreload</artifactId>
+                                <version>${quick.reload.version}</version>
+                            </pluginArtifact>
+                        </pluginArtifacts>
+
+                        <systemPropertyVariables>
+                            <atlassian.dev.mode>${dev.mode}</atlassian.dev.mode>
+                            <plugin.script.roots>${plugin.script.roots}</plugin.script.roots>
+                            <jira.websudo.is.disabled>${dev.mode}</jira.websudo.is.disabled>
+                        </systemPropertyVariables>
+
+                        <instructions>
+                            <Import-Package>
+                                org.springframework.osgi.*;resolution:="optional",
+                                org.eclipse.gemini.blueprint.*;resolution:="optional",
+                                *
+                            </Import-Package>
+
+                            <!-- Ensure plugin is spring powered -->
+                            <Spring-Context>*</Spring-Context>
+
+                            <Require-Bundle>
+                                com.onresolve.jira.groovy.groovyrunner
+                            </Require-Bundle>
+                        </instructions>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
