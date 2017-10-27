@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
@@ -42,7 +43,8 @@
         <quick.reload.version>2.0.0</quick.reload.version>
 
         <!-- Default plugin script roots -->
-        <plugin.script.roots>${project.basedir}/src/main/resources,${project.basedir}/src/test/groovy</plugin.script.roots>
+        <plugin.script.roots>${project.basedir}/src/main/resources,${project.basedir}/src/test/groovy
+        </plugin.script.roots>
 
         <!-- Run the Atlassian product in dev mode? -->
         <dev.mode>true</dev.mode>
@@ -154,7 +156,8 @@
                         <dependency>
                             <groupId>org.codehaus.groovy</groupId>
                             <artifactId>groovy-all</artifactId>
-                            <version>${groovy.version}</version> <!-- this version should match the scriptrunner version -->
+                            <version>${groovy.version}
+                            </version> <!-- this version should match the scriptrunner version -->
                             <scope>runtime</scope>
                         </dependency>
                     </dependencies>
@@ -198,6 +201,22 @@
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
+        </repository>
+        <repository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>central</id>
+            <name>bintray</name>
+            <url>http://jcenter.bintray.com</url>
+        </repository>
+        <repository>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <id>maven-snapshots</id>
+            <name>Sonatype OSS Snapshots</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
         </repository>
     </repositories>
 
