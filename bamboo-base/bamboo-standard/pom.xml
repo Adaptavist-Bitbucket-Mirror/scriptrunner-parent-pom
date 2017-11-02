@@ -29,6 +29,12 @@
             <groupId>com.atlassian.sal</groupId>
             <artifactId>sal-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.atlassian.plugins</groupId>
+            <artifactId>atlassian-plugins-osgi-bridge</artifactId>
+            <version>${atlassian.plugins.version}</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -43,4 +49,8 @@
             </plugin>
         </plugins>
     </build>
+
+    <properties>
+        <atlassian.plugins.version>4.5.0</atlassian.plugins.version>
+    </properties>
 </project>
