@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
@@ -30,6 +31,8 @@
 
         <confluence.host>${product.host}</confluence.host>
         <confluence.port>${product.port}</confluence.port>
+
+        <logging.levels>com.onresolve;DEBUG</logging.levels>
     </properties>
 
     <dependencyManagement>
@@ -49,14 +52,14 @@
             </dependency>
 
             <!-- ScriptRunner test libraries -->
-<!--
-            <dependency>
-                <groupId>com.onresolve.scriptrunner.platform</groupId>
-                <artifactId>scriptrunner-test-libraries-confluence</artifactId>
-                <version>${scriptrunner.version}</version>
-                <scope>test</scope>
-            </dependency>
--->
+            <!--
+                        <dependency>
+                            <groupId>com.onresolve.scriptrunner.platform</groupId>
+                            <artifactId>scriptrunner-test-libraries-confluence</artifactId>
+                            <version>${scriptrunner.version}</version>
+                            <scope>test</scope>
+                        </dependency>
+            -->
 
             <!-- Confluence -->
             <dependency>
@@ -64,6 +67,12 @@
                 <artifactId>confluence</artifactId>
                 <version>${confluence.version}</version>
                 <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.adaptavist</groupId>
+                <artifactId>logging-assistant</artifactId>
+                <version>1.0.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -90,13 +99,13 @@
                         <httpPort>${confluence.port}</httpPort>
 
                         <pluginArtifacts>
-<!--
-                            <pluginArtifact>
-                                <groupId>com.onresolve.scriptrunner.platform</groupId>
-                                <artifactId>scriptrunner-test-libraries-confluence</artifactId>
-                                <version>${scriptrunner.version}</version>
-                            </pluginArtifact>
--->
+                            <!--
+                                                        <pluginArtifact>
+                                                            <groupId>com.onresolve.scriptrunner.platform</groupId>
+                                                            <artifactId>scriptrunner-test-libraries-confluence</artifactId>
+                                                            <version>${scriptrunner.version}</version>
+                                                        </pluginArtifact>
+                            -->
 
                             <pluginArtifact>
                                 <groupId>com.onresolve.confluence.groovy</groupId>
@@ -109,11 +118,18 @@
                                 <artifactId>quickreload</artifactId>
                                 <version>${quick.reload.version}</version>
                             </pluginArtifact>
+
+                            <pluginArtifact>
+                                <groupId>com.adaptavist</groupId>
+                                <artifactId>logging-assistant</artifactId>
+                                <version>1.0.0</version>
+                            </pluginArtifact>
                         </pluginArtifacts>
 
                         <systemPropertyVariables>
                             <atlassian.dev.mode>${dev.mode}</atlassian.dev.mode>
                             <plugin.script.roots>${plugin.script.roots}</plugin.script.roots>
+                            <loggingLevels>${logging.levels}</loggingLevels>
                         </systemPropertyVariables>
 
                         <instructions>

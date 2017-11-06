@@ -30,6 +30,7 @@
 
         <bamboo.host>${product.host}</bamboo.host>
         <bamboo.port>${product.port}</bamboo.port>
+        <logging.levels>com.onresolve;DEBUG</logging.levels>
     </properties>
 
     <dependencyManagement>
@@ -65,6 +66,11 @@
                 <artifactId>atlassian-bamboo-api</artifactId>
                 <version>${bamboo.version}</version>
                 <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.adaptavist</groupId>
+                <artifactId>logging-assistant</artifactId>
+                <version>1.0.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -110,11 +116,18 @@
                                 <artifactId>quickreload</artifactId>
                                 <version>${quick.reload.version}</version>
                             </pluginArtifact>
+
+                            <pluginArtifact>
+                                <groupId>com.adaptavist</groupId>
+                                <artifactId>logging-assistant</artifactId>
+                                <version>1.0.0</version>
+                            </pluginArtifact>
                         </pluginArtifacts>
 
                         <systemPropertyVariables>
                             <atlassian.dev.mode>${dev.mode}</atlassian.dev.mode>
                             <plugin.script.roots>${plugin.script.roots}</plugin.script.roots>
+                            <loggingLevels>${logging.levels}</loggingLevels>
                         </systemPropertyVariables>
 
                         <instructions>
