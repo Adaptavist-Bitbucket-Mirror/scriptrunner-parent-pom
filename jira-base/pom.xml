@@ -22,10 +22,10 @@
 
     <properties>
         <!-- ScriptRunner version for Jira -->
-        <scriptrunner.version>5.1.7</scriptrunner.version>
+        <scriptrunner.version>5.3.0</scriptrunner.version>
 
         <!-- Jira version-->
-        <jira.version>7.5.1</jira.version>
+        <jira.version>7.7.0</jira.version>
 
         <jira.data.version>${jira.version}</jira.data.version>
         <jira.software.application.version>${jira.version}</jira.software.application.version>
