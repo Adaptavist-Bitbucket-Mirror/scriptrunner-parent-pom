@@ -22,7 +22,7 @@
 
     <properties>
         <!-- ScriptRunner version for Confluence -->
-        <scriptrunner.version>5.1.7</scriptrunner.version>
+        <scriptrunner.version>5.4.9</scriptrunner.version>
 
         <!-- Confluence version-->
         <confluence.version>6.4.3</confluence.version>
