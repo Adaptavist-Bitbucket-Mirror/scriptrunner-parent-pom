@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
@@ -17,10 +18,8 @@
     <description>Base pom for ScriptRunner for Bitbucket script plugins.</description>
 
     <properties>
-        <!-- ScriptRunner version for Bitbucket -->
-        <scriptrunner.version>5.1.8</scriptrunner.version>
+        <scriptrunner.version>5.6.1</scriptrunner.version> <!-- ScriptRunner for Bitbucket -->
 
-        <!-- Bitbucket version-->
         <bitbucket.version>5.5.0</bitbucket.version>
         <bitbucket.data.version>${bitbucket.version}</bitbucket.data.version>
 
@@ -34,31 +33,26 @@
 
     <dependencyManagement>
         <dependencies>
-            <!-- ScriptRunner core -->
             <dependency>
                 <groupId>com.onresolve.stash.groovy</groupId>
                 <artifactId>groovyrunner</artifactId>
                 <version>${scriptrunner.version}</version>
                 <scope>provided</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>groovyrunner</groupId>
+                        <artifactId>test</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
 
-            <!-- ScriptRunner test libraries -->
-            <!--
-                        <dependency>
-                            <groupId>com.onresolve.scriptrunner.platform</groupId>
-                            <artifactId>scriptrunner-test-libraries-bitbucket</artifactId>
-                            <version>${scriptrunner.version}</version>
-                            <scope>test</scope>
-                        </dependency>
-            -->
-
-            <!-- Bitbucket -->
             <dependency>
                 <groupId>com.atlassian.bitbucket.server</groupId>
                 <artifactId>bitbucket-api</artifactId>
                 <version>${bitbucket.version}</version>
                 <scope>provided</scope>
             </dependency>
+
             <dependency>
                 <groupId>com.atlassian.bitbucket.server</groupId>
                 <artifactId>bitbucket-spi</artifactId>
@@ -90,14 +84,6 @@
                         <httpPort>${bitbucket.port}</httpPort>
 
                         <pluginArtifacts>
-                            <!--
-                                                        <pluginArtifact>
-                                                            <groupId>com.onresolve.scriptrunner.platform</groupId>
-                                                            <artifactId>scriptrunner-test-libraries-bitbucket</artifactId>
-                                                            <version>${scriptrunner.version}</version>
-                                                        </pluginArtifact>
-                            -->
-
                             <pluginArtifact>
                                 <groupId>com.onresolve.stash.groovy</groupId>
                                 <artifactId>groovyrunner</artifactId>

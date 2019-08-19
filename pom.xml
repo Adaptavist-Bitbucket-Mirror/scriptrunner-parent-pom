@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
 
@@ -28,40 +28,27 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <!-- NOTE: We now default to Java 8, ensure you override this if you need backwards compatibility -->
         <java.version>1.8</java.version>
-
-        <!-- Atlassian AMPS version -->
         <amps.version>6.3.18</amps.version>
-
-        <!-- Internal application components -->
+        <gmavenplus.version>1.7.1</gmavenplus.version>
+        <groovy.version>2.4.15</groovy.version> <!-- This should match the groovy version in ScriptRunner -->
         <spring.version>4.1.7.RELEASE</spring.version>
+        <quick.reload.version>2.0.0</quick.reload.version>
         <atlassian.sal.version>3.0.0</atlassian.sal.version>
 
-        <!-- Development tool versions -->
-        <quick.reload.version>2.0.0</quick.reload.version>
-
-        <!-- Default plugin script roots -->
         <plugin.script.roots>${project.basedir}/src/main/resources,${project.basedir}/src/test/groovy
         </plugin.script.roots>
 
-        <!-- Run the Atlassian product in dev mode? -->
         <dev.mode>true</dev.mode>
 
-        <!-- Default hostname & port for Atlassian product -->
         <product.host>localhost</product.host>
         <product.port>8080</product.port>
 
-        <!-- This should match the groovy version in ScriptRunner -->
-        <groovy.version>2.4.6</groovy.version>
-
-        <!-- Default plugin key -->
         <atlassian.plugin.key>${project.groupId}.${project.artifactId}</atlassian.plugin.key>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <!-- Spring -->
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-beans</artifactId>
@@ -69,12 +56,17 @@
                 <scope>provided</scope>
             </dependency>
 
-            <!-- Common Atlassian libraries -->
             <dependency>
                 <groupId>com.atlassian.sal</groupId>
                 <artifactId>sal-api</artifactId>
                 <version>${atlassian.sal.version}</version>
                 <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.codehaus.groovy</groupId>
+                <artifactId>groovy-all</artifactId>
+                <version>${groovy.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -110,7 +102,7 @@
                 <plugin>
                     <groupId>org.codehaus.gmavenplus</groupId>
                     <artifactId>gmavenplus-plugin</artifactId>
-                    <version>1.6</version>
+                    <version>${gmavenplus.version}</version>
                     <executions>
                         <execution>
                             <goals>
@@ -151,15 +143,6 @@
                             </testSource>
                         </testSources>
                     </configuration>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.codehaus.groovy</groupId>
-                            <artifactId>groovy-all</artifactId>
-                            <version>${groovy.version}
-                            </version> <!-- this version should match the scriptrunner version -->
-                            <scope>runtime</scope>
-                        </dependency>
-                    </dependencies>
                 </plugin>
 
                 <plugin>
@@ -250,5 +233,4 @@
         </developerConnection>
         <tag>HEAD</tag>
     </scm>
-
 </project>

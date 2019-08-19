@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
@@ -21,13 +22,11 @@
     </modules>
 
     <properties>
-        <!-- ScriptRunner version for Confluence -->
-        <scriptrunner.version>5.4.9</scriptrunner.version>
+        <scriptrunner.version>5.5.11</scriptrunner.version> <!-- ScriptRunner for Confluence -->
 
-        <!-- Confluence version-->
         <confluence.version>6.4.3</confluence.version>
         <confluence.test.version>${confluence.version}</confluence.test.version>
-        <confluence.data.version>${confluence.test.version}</confluence.data.version>
+        <confluence.data.version>${confluence.version}</confluence.data.version>
 
         <confluence.host>${product.host}</confluence.host>
         <confluence.port>${product.port}</confluence.port>
@@ -37,7 +36,6 @@
 
     <dependencyManagement>
         <dependencies>
-            <!-- ScriptRunner core -->
             <dependency>
                 <groupId>com.onresolve.confluence.groovy</groupId>
                 <artifactId>groovyrunner</artifactId>
@@ -45,23 +43,12 @@
                 <scope>provided</scope>
                 <exclusions>
                     <exclusion>
-                        <groupId>com.onresolve.scriptrunner.platform</groupId>
-                        <artifactId>scriptrunner-test-libraries-jira</artifactId>
+                        <groupId>groovyrunner</groupId>
+                        <artifactId>test</artifactId>
                     </exclusion>
                 </exclusions>
             </dependency>
 
-            <!-- ScriptRunner test libraries -->
-            <!--
-                        <dependency>
-                            <groupId>com.onresolve.scriptrunner.platform</groupId>
-                            <artifactId>scriptrunner-test-libraries-confluence</artifactId>
-                            <version>${scriptrunner.version}</version>
-                            <scope>test</scope>
-                        </dependency>
-            -->
-
-            <!-- Confluence -->
             <dependency>
                 <groupId>com.atlassian.confluence</groupId>
                 <artifactId>confluence</artifactId>
@@ -86,7 +73,6 @@
                     <version>${amps.version}</version>
                     <extensions>true</extensions>
                     <configuration>
-
                         <skipAmpsPomCheck>true</skipAmpsPomCheck>
                         <skipAllPrompts>true</skipAllPrompts>
                         <enableFastdev>false</enableFastdev>
@@ -98,14 +84,6 @@
                         <httpPort>${confluence.port}</httpPort>
 
                         <pluginArtifacts>
-                            <!--
-                                                        <pluginArtifact>
-                                                            <groupId>com.onresolve.scriptrunner.platform</groupId>
-                                                            <artifactId>scriptrunner-test-libraries-confluence</artifactId>
-                                                            <version>${scriptrunner.version}</version>
-                                                        </pluginArtifact>
-                            -->
-
                             <pluginArtifact>
                                 <groupId>com.onresolve.confluence.groovy</groupId>
                                 <artifactId>groovyrunner</artifactId>
