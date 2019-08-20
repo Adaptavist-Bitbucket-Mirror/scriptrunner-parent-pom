@@ -41,12 +41,13 @@
                 <artifactId>groovyrunner</artifactId>
                 <version>${scriptrunner.version}</version>
                 <scope>provided</scope>
-                <exclusions>
-                    <exclusion>
-                        <groupId>groovyrunner</groupId>
-                        <artifactId>test</artifactId>
-                    </exclusion>
-                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>com.onresolve.scriptrunner.platform</groupId>
+                <artifactId>scriptrunner-test-libraries-confluence</artifactId>
+                <version>${scriptrunner.version}</version>
+                <scope>test</scope>
             </dependency>
 
             <dependency>

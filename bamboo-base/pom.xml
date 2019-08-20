@@ -44,11 +44,14 @@
                         <groupId>com.atlassian.bamboo</groupId>
                         <artifactId>atlassian-bamboo</artifactId>
                     </exclusion>
-                    <exclusion>
-                        <groupId>groovyrunner</groupId>
-                        <artifactId>test</artifactId>
-                    </exclusion>
                 </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>com.onresolve.scriptrunner.platform</groupId>
+                <artifactId>scriptrunner-test-libraries-bamboo</artifactId>
+                <version>${scriptrunner.version}</version>
+                <scope>test</scope>
             </dependency>
 
             <dependency>

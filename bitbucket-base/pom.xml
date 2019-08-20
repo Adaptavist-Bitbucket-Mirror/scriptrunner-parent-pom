@@ -38,12 +38,13 @@
                 <artifactId>groovyrunner</artifactId>
                 <version>${scriptrunner.version}</version>
                 <scope>provided</scope>
-                <exclusions>
-                    <exclusion>
-                        <groupId>groovyrunner</groupId>
-                        <artifactId>test</artifactId>
-                    </exclusion>
-                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>com.onresolve.scriptrunner.platform</groupId>
+                <artifactId>scriptrunner-test-libraries-bitbucket</artifactId>
+                <version>${scriptrunner.version}</version>
+                <scope>test</scope>
             </dependency>
 
             <dependency>
@@ -71,7 +72,6 @@
                     <version>${amps.version}</version>
                     <extensions>true</extensions>
                     <configuration>
-
                         <skipAmpsPomCheck>true</skipAmpsPomCheck>
                         <skipAllPrompts>true</skipAllPrompts>
                         <enableFastdev>false</enableFastdev>

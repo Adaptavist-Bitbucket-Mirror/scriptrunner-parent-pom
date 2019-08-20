@@ -27,7 +27,7 @@
         <jira.version>7.9.0</jira.version>
         <jira.data.version>${jira.version}</jira.data.version>
         <jira.software.application.version>${jira.version}</jira.software.application.version>
-        <jira.servicedesk.application.version>3.8.2</jira.servicedesk.application.version>
+        <jira.servicedesk.application.version>3.12.0</jira.servicedesk.application.version>
 
         <jira.host>${product.host}</jira.host>
         <jira.port>${product.port}</jira.port>
@@ -35,17 +35,12 @@
 
     <dependencyManagement>
         <dependencies>
-            <!-- ScriptRunner core -->
             <dependency>
                 <groupId>com.onresolve.jira.groovy</groupId>
                 <artifactId>groovyrunner</artifactId>
                 <version>${scriptrunner.version}</version>
                 <scope>provided</scope>
                 <exclusions>
-                    <exclusion>
-                        <groupId>groovyrunner</groupId>
-                        <artifactId>test</artifactId>
-                    </exclusion>
                     <exclusion>
                         <groupId>jndi</groupId>
                         <artifactId>jndi</artifactId>
@@ -63,6 +58,13 @@
                         <artifactId>tempo-core</artifactId>
                     </exclusion>
                 </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>com.onresolve.scriptrunner.platform</groupId>
+                <artifactId>scriptrunner-test-libraries-jira</artifactId>
+                <version>${scriptrunner.version}</version>
+                <scope>test</scope>
             </dependency>
 
             <dependency>

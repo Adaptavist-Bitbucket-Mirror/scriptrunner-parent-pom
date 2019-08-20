@@ -15,7 +15,9 @@
     <version>14-SNAPSHOT</version>
 
     <name>ScriptRunner for Bamboo - standard plugin pom</name>
-    <description>Base pom for ScriptRunner for Bamboo script plugins with standard dependencies and build.</description>
+    <description>
+        Base pom for ScriptRunner for Bamboo script plugins with standard dependencies and build.
+    </description>
 
     <dependencies>
         <dependency>

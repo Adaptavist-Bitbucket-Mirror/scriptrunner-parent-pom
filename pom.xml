@@ -29,14 +29,15 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <java.version>1.8</java.version>
-        <amps.version>6.3.18</amps.version>
+        <amps.version>6.3.21</amps.version>
         <gmavenplus.version>1.7.1</gmavenplus.version>
         <groovy.version>2.4.15</groovy.version> <!-- This should match the groovy version in ScriptRunner -->
         <spring.version>4.1.7.RELEASE</spring.version>
         <quick.reload.version>2.0.0</quick.reload.version>
         <atlassian.sal.version>3.0.0</atlassian.sal.version>
 
-        <plugin.script.roots>${project.basedir}/src/main/resources,${project.basedir}/src/test/groovy
+        <plugin.script.roots>
+            ${project.basedir}/src/main/resources,${project.basedir}/src/test/groovy
         </plugin.script.roots>
 
         <dev.mode>true</dev.mode>
@@ -82,7 +83,6 @@
                     <include>**/*.groovy</include>
                 </includes>
             </resource>
-
             <resource>
                 <directory>src/main/resources</directory>
             </resource>
@@ -103,16 +103,6 @@
                     <groupId>org.codehaus.gmavenplus</groupId>
                     <artifactId>gmavenplus-plugin</artifactId>
                     <version>${gmavenplus.version}</version>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>addSources</goal>
-                                <goal>addTestSources</goal>
-                                <goal>compile</goal>
-                                <goal>compileTests</goal>
-                            </goals>
-                        </execution>
-                    </executions>
                     <configuration>
                         <sources>
                             <source>

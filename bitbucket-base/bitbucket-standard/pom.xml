@@ -15,7 +15,8 @@
     <version>14-SNAPSHOT</version>
 
     <name>ScriptRunner for Bitbucket - standard plugin pom</name>
-    <description>Base pom for ScriptRunner for Bitbucket script plugins with standard dependencies and build.
+    <description>
+        Base pom for ScriptRunner for Bitbucket script plugins with standard dependencies and build.
     </description>
 
     <dependencies>
