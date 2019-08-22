@@ -111,13 +111,7 @@
                                     <include>**/*.groovy</include>
                                 </includes>
                             </source>
-                            <source>
-                                <directory>${project.basedir}/src/main/resources</directory>
-                                <includes>
-                                    <include>**/*.groovy</include>
-                                </includes>
-                            </source>
-                        </sources>
+                       </sources>
                         <testSources>
                             <testSource>
                                 <directory>${project.basedir}/src/test/groovy</directory>
