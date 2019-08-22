@@ -8,11 +8,11 @@
     <parent>
         <groupId>com.adaptavist.pom</groupId>
         <artifactId>scriptrunner-jira-base</artifactId>
-        <version>14</version>
+        <version>15-SNAPSHOT</version>
     </parent>
 
     <artifactId>scriptrunner-jira-standard</artifactId>
-    <version>14</version>
+    <version>15-SNAPSHOT</version>
 
     <name>ScriptRunner for Jira - standard plugin pom</name>
     <description>Base pom for ScriptRunner for Jira script plugins with standard dependencies and build.</description>
