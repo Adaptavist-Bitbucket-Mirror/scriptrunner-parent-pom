@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
@@ -21,15 +22,12 @@
     </modules>
 
     <properties>
-        <!-- ScriptRunner version for Jira -->
-        <scriptrunner.version>5.4.7</scriptrunner.version>
+        <scriptrunner.version>5.6.1</scriptrunner.version> <!-- ScriptRunner for Jira -->
 
-        <!-- Jira version-->
         <jira.version>7.9.0</jira.version>
-
         <jira.data.version>${jira.version}</jira.data.version>
         <jira.software.application.version>${jira.version}</jira.software.application.version>
-        <jira.servicedesk.application.version>3.8.2</jira.servicedesk.application.version>
+        <jira.servicedesk.application.version>3.12.0</jira.servicedesk.application.version>
 
         <jira.host>${product.host}</jira.host>
         <jira.port>${product.port}</jira.port>
@@ -37,17 +35,12 @@
 
     <dependencyManagement>
         <dependencies>
-            <!-- ScriptRunner core -->
             <dependency>
                 <groupId>com.onresolve.jira.groovy</groupId>
                 <artifactId>groovyrunner</artifactId>
                 <version>${scriptrunner.version}</version>
                 <scope>provided</scope>
                 <exclusions>
-                    <exclusion>
-                        <groupId>com.onresolve.scriptrunner.platform</groupId>
-                        <artifactId>scriptrunner-test-libraries-jira</artifactId>
-                    </exclusion>
                     <exclusion>
                         <groupId>jndi</groupId>
                         <artifactId>jndi</artifactId>
@@ -67,17 +60,13 @@
                 </exclusions>
             </dependency>
 
-            <!-- ScriptRunner test libraries -->
-<!--
             <dependency>
                 <groupId>com.onresolve.scriptrunner.platform</groupId>
                 <artifactId>scriptrunner-test-libraries-jira</artifactId>
                 <version>${scriptrunner.version}</version>
                 <scope>test</scope>
             </dependency>
--->
 
-            <!-- Jira -->
             <dependency>
                 <groupId>com.atlassian.jira</groupId>
                 <artifactId>jira-api</artifactId>
@@ -90,6 +79,7 @@
                     </exclusion>
                 </exclusions>
             </dependency>
+
             <dependency>
                 <groupId>com.atlassian.jira</groupId>
                 <artifactId>jira-core</artifactId>
@@ -108,7 +98,6 @@
                     <version>${amps.version}</version>
                     <extensions>true</extensions>
                     <configuration>
-
                         <skipAmpsPomCheck>true</skipAmpsPomCheck>
                         <skipAllPrompts>true</skipAllPrompts>
                         <enableFastdev>false</enableFastdev>
@@ -121,14 +110,6 @@
                         <httpPort>${jira.port}</httpPort>
 
                         <pluginArtifacts>
-<!--
-                            <pluginArtifact>
-                                <groupId>com.onresolve.scriptrunner.platform</groupId>
-                                <artifactId>scriptrunner-test-libraries-jira</artifactId>
-                                <version>${scriptrunner.version}</version>
-                            </pluginArtifact>
--->
-
                             <pluginArtifact>
                                 <groupId>com.onresolve.jira.groovy</groupId>
                                 <artifactId>groovyrunner</artifactId>
