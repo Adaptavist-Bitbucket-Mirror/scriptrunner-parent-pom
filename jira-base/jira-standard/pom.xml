@@ -17,24 +17,15 @@
     <name>ScriptRunner for Jira - standard plugin pom</name>
     <description>Base pom for ScriptRunner for Jira script plugins with standard dependencies and build.</description>
 
+    <properties>
+        <classgraph.version>4.8.43</classgraph.version>
+    </properties>
+
     <dependencies>
         <dependency>
-            <groupId>com.onresolve.jira.groovy</groupId>
-            <artifactId>groovyrunner</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.atlassian.jira</groupId>
-            <artifactId>jira-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.atlassian.sal</groupId>
-            <artifactId>sal-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.atlassian.plugins</groupId>
-            <artifactId>atlassian-plugins-osgi-bridge</artifactId>
-            <version>${atlassian.plugins.version}</version>
-            <scope>provided</scope>
+            <groupId>io.github.classgraph</groupId>
+            <artifactId>classgraph</artifactId>
+            <version>${classgraph.version}</version>
         </dependency>
     </dependencies>
 
@@ -50,8 +41,4 @@
             </plugin>
         </plugins>
     </build>
-
-    <properties>
-        <atlassian.plugins.version>4.5.0</atlassian.plugins.version>
-    </properties>
 </project>

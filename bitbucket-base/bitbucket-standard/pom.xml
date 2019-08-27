@@ -19,24 +19,29 @@
         Base pom for ScriptRunner for Bitbucket script plugins with standard dependencies and build.
     </description>
 
+    <properties>
+        <logback-classic.version>1.0.13</logback-classic.version>
+        <org.osgi.core.version>6.0.0</org.osgi.core.version>
+        <atlassian-plugins-osgi.version>4.1.0</atlassian-plugins-osgi.version>
+    </properties>
+
     <dependencies>
         <dependency>
-            <groupId>com.onresolve.stash.groovy</groupId>
-            <artifactId>groovyrunner</artifactId>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback-classic.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.atlassian.bitbucket.server</groupId>
-            <artifactId>bitbucket-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.atlassian.bitbucket.server</groupId>
-            <artifactId>bitbucket-spi</artifactId>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.core</artifactId>
+            <version>${org.osgi.core.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.atlassian.plugins</groupId>
-            <artifactId>atlassian-plugins-osgi-bridge</artifactId>
-            <version>${atlassian.plugins.version}</version>
-            <scope>provided</scope>
+            <artifactId>atlassian-plugins-osgi</artifactId>
+            <version>${atlassian-plugins-osgi.version}</version>
         </dependency>
     </dependencies>
 
@@ -52,8 +57,4 @@
             </plugin>
         </plugins>
     </build>
-
-    <properties>
-        <atlassian.plugins.version>4.5.0</atlassian.plugins.version>
-    </properties>
 </project>
