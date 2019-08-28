@@ -8,11 +8,11 @@
     <parent>
         <groupId>com.adaptavist.pom</groupId>
         <artifactId>scriptrunner-base</artifactId>
-        <version>15-SNAPSHOT</version>
+        <version>15</version>
     </parent>
 
     <artifactId>scriptrunner-confluence-base</artifactId>
-    <version>15-SNAPSHOT</version>
+    <version>15</version>
 
     <name>ScriptRunner for Confluence - base plugin pom</name>
     <description>Base pom for ScriptRunner for Confluence script plugins.</description>
