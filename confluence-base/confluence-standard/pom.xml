@@ -19,24 +19,34 @@
         Base pom for ScriptRunner for Confluence script plugins with standard dependencies and build.
     </description>
 
+    <properties>
+        <spock-core.version>1.1-groovy-2.4</spock-core.version>
+        <activeobjects-core.version>1.2.3</activeobjects-core.version>
+        <classgraph.version>4.8.43</classgraph.version>
+    </properties>
+
     <dependencies>
         <dependency>
-            <groupId>com.onresolve.confluence.groovy</groupId>
-            <artifactId>groovyrunner</artifactId>
+            <groupId>org.spockframework</groupId>
+            <artifactId>spock-core</artifactId>
+            <version>${spock-core.version}</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <artifactId>groovy-all</artifactId>
+                    <groupId>*</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
-            <groupId>com.atlassian.confluence</groupId>
-            <artifactId>confluence</artifactId>
+            <groupId>com.atlassian.activeobjects</groupId>
+            <artifactId>activeobjects-core</artifactId>
+            <version>${activeobjects-core.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.atlassian.sal</groupId>
-            <artifactId>sal-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.atlassian.plugins</groupId>
-            <artifactId>atlassian-plugins-osgi-bridge</artifactId>
-            <version>${atlassian.plugins.version}</version>
-            <scope>provided</scope>
+            <groupId>io.github.classgraph</groupId>
+            <artifactId>classgraph</artifactId>
+            <version>${classgraph.version}</version>
         </dependency>
     </dependencies>
 
@@ -52,8 +62,4 @@
             </plugin>
         </plugins>
     </build>
-
-    <properties>
-        <atlassian.plugins.version>4.5.0</atlassian.plugins.version>
-    </properties>
 </project>

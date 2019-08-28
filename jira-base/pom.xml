@@ -33,61 +33,52 @@
         <jira.port>${product.port}</jira.port>
     </properties>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.onresolve.jira.groovy</groupId>
-                <artifactId>groovyrunner</artifactId>
-                <version>${scriptrunner.version}</version>
-                <scope>provided</scope>
-                <exclusions>
-                    <exclusion>
-                        <groupId>jndi</groupId>
-                        <artifactId>jndi</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>jta</groupId>
-                        <artifactId>jta</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>is.origo.jira</groupId>
-                        <artifactId>tempo-plugin</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>com.tempoplugin</groupId>
-                        <artifactId>tempo-core</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
+    <dependencies>
+        <dependency>
+            <groupId>com.onresolve.jira.groovy</groupId>
+            <artifactId>groovyrunner</artifactId>
+            <version>${scriptrunner.version}</version>
+            <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>jndi</groupId>
+                    <artifactId>jndi</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>jta</groupId>
+                    <artifactId>jta</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>is.origo.jira</groupId>
+                    <artifactId>tempo-plugin</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.tempoplugin</groupId>
+                    <artifactId>tempo-core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
 
-            <dependency>
-                <groupId>com.onresolve.scriptrunner.platform</groupId>
-                <artifactId>scriptrunner-test-libraries-jira</artifactId>
-                <version>${scriptrunner.version}</version>
-                <scope>test</scope>
-            </dependency>
+        <dependency>
+            <groupId>com.atlassian.jira</groupId>
+            <artifactId>jira-api</artifactId>
+            <version>${jira.version}</version>
+            <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>jta</groupId>
+                    <artifactId>jta</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
 
-            <dependency>
-                <groupId>com.atlassian.jira</groupId>
-                <artifactId>jira-api</artifactId>
-                <version>${jira.version}</version>
-                <scope>provided</scope>
-                <exclusions>
-                    <exclusion>
-                        <groupId>jta</groupId>
-                        <artifactId>jta</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <dependency>
-                <groupId>com.atlassian.jira</groupId>
-                <artifactId>jira-core</artifactId>
-                <version>${jira.version}</version>
-                <scope>provided</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+        <dependency>
+            <groupId>com.atlassian.jira</groupId>
+            <artifactId>jira-core</artifactId>
+            <version>${jira.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <pluginManagement>

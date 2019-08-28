@@ -31,37 +31,28 @@
         <module>bitbucket-standard</module>
     </modules>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.onresolve.stash.groovy</groupId>
-                <artifactId>groovyrunner</artifactId>
-                <version>${scriptrunner.version}</version>
-                <scope>provided</scope>
-            </dependency>
+    <dependencies>
+        <dependency>
+            <groupId>com.onresolve.stash.groovy</groupId>
+            <artifactId>groovyrunner</artifactId>
+            <version>${scriptrunner.version}</version>
+            <scope>provided</scope>
+        </dependency>
 
-            <dependency>
-                <groupId>com.onresolve.scriptrunner.platform</groupId>
-                <artifactId>scriptrunner-test-libraries-bitbucket</artifactId>
-                <version>${scriptrunner.version}</version>
-                <scope>test</scope>
-            </dependency>
+        <dependency>
+            <groupId>com.atlassian.bitbucket.server</groupId>
+            <artifactId>bitbucket-api</artifactId>
+            <version>${bitbucket.version}</version>
+            <scope>provided</scope>
+        </dependency>
 
-            <dependency>
-                <groupId>com.atlassian.bitbucket.server</groupId>
-                <artifactId>bitbucket-api</artifactId>
-                <version>${bitbucket.version}</version>
-                <scope>provided</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>com.atlassian.bitbucket.server</groupId>
-                <artifactId>bitbucket-spi</artifactId>
-                <version>${bitbucket.version}</version>
-                <scope>provided</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+        <dependency>
+            <groupId>com.atlassian.bitbucket.server</groupId>
+            <artifactId>bitbucket-spi</artifactId>
+            <version>${bitbucket.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <pluginManagement>
