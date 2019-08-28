@@ -8,11 +8,11 @@
     <parent>
         <groupId>com.adaptavist.pom</groupId>
         <artifactId>scriptrunner-bamboo-base</artifactId>
-        <version>15</version>
+        <version>16-SNAPSHOT</version>
     </parent>
 
     <artifactId>scriptrunner-bamboo-standard</artifactId>
-    <version>15</version>
+    <version>16-SNAPSHOT</version>
 
     <name>ScriptRunner for Bamboo - standard plugin pom</name>
     <description>
