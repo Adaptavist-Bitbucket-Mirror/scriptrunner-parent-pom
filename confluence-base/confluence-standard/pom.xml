@@ -20,24 +20,11 @@
     </description>
 
     <properties>
-        <spock-core.version>1.1-groovy-2.4</spock-core.version>
         <activeobjects-core.version>1.2.3</activeobjects-core.version>
         <classgraph.version>4.8.43</classgraph.version>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.spockframework</groupId>
-            <artifactId>spock-core</artifactId>
-            <version>${spock-core.version}</version>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <artifactId>groovy-all</artifactId>
-                    <groupId>*</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
         <dependency>
             <groupId>com.atlassian.activeobjects</groupId>
             <artifactId>activeobjects-core</artifactId>
