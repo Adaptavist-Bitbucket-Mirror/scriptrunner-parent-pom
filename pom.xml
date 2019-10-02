@@ -37,7 +37,8 @@
         <quick.reload.version>2.0.0</quick.reload.version>
         <atlassian.sal.version>3.0.3</atlassian.sal.version>
         <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
-        <atlassian-plugins-osgi-bridge.version>5.3.2</atlassian-plugins-osgi-bridge.version>
+        <atlassian-plugins.version>4.5.0</atlassian-plugins.version>
+        <classgraph.version>4.8.43</classgraph.version>
 
         <plugin.script.roots>
             ${project.basedir}/src/main/resources,${project.basedir}/src/test/groovy
@@ -60,23 +61,17 @@
         </dependency>
 
         <dependency>
-            <groupId>com.atlassian.sal</groupId>
-            <artifactId>sal-api</artifactId>
-            <version>${atlassian.sal.version}</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.atlassian.plugins</groupId>
-            <artifactId>atlassian-plugins-osgi-bridge</artifactId>
-            <version>${atlassian-plugins-osgi-bridge.version}</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-all</artifactId>
             <version>${groovy.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.classgraph</groupId>
+            <artifactId>classgraph</artifactId>
+            <version>${classgraph.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>

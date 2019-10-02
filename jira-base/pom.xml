@@ -122,9 +122,7 @@
 
                         <instructions>
                             <Import-Package>
-                                org.springframework.osgi.*;resolution:="optional",
-                                org.eclipse.gemini.blueprint.*;resolution:="optional",
-                                *
+                                *;resolution:="optional"
                             </Import-Package>
 
                             <!-- Ensure plugin is spring powered -->

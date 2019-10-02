@@ -31,6 +31,8 @@
         <confluence.host>${product.host}</confluence.host>
         <confluence.port>${product.port}</confluence.port>
 
+        <logging-assistant.version>1.0.0</logging-assistant.version>
+
         <logging.levels>com.onresolve;DEBUG</logging.levels>
     </properties>
 
@@ -52,7 +54,7 @@
         <dependency>
             <groupId>com.adaptavist</groupId>
             <artifactId>logging-assistant</artifactId>
-            <version>1.0.0</version>
+            <version>${logging-assistant.version}</version>
         </dependency>
     </dependencies>
 
@@ -103,9 +105,7 @@
 
                         <instructions>
                             <Import-Package>
-                                org.springframework.osgi.*;resolution:="optional",
-                                org.eclipse.gemini.blueprint.*;resolution:="optional",
-                                *
+                                *;resolution:="optional"
                             </Import-Package>
 
                             <!-- Ensure plugin is spring powered -->
