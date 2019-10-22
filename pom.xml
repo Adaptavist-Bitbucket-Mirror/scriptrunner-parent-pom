@@ -41,7 +41,8 @@
         <classgraph.version>4.8.43</classgraph.version>
 
         <plugin.script.roots>
-            ${project.basedir}/src/main/resources,${project.basedir}/src/test/groovy
+            ${project.basedir}/src/main/resources,
+            ${project.basedir}/src/test/resources
         </plugin.script.roots>
 
         <dev.mode>true</dev.mode>
