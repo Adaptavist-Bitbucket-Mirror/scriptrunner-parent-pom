@@ -22,7 +22,7 @@
     </modules>
 
     <properties>
-        <scriptrunner.version>5.5.11</scriptrunner.version> <!-- ScriptRunner for Confluence -->
+        <scriptrunner.version>5.6.6</scriptrunner.version> <!-- ScriptRunner for Confluence -->
 
         <confluence.version>6.4.3</confluence.version>
         <confluence.host>${product.host}</confluence.host>
@@ -99,6 +99,7 @@
                         <systemPropertyVariables>
                             <atlassian.dev.mode>${dev.mode}</atlassian.dev.mode>
                             <plugin.script.roots>${plugin.script.roots}</plugin.script.roots>
+                            <plugin.script.test.packages>${plugin.script.test.packages}</plugin.script.test.packages>
                             <loggingLevels>${logging.levels}</loggingLevels>
                         </systemPropertyVariables>
 

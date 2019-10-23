@@ -18,7 +18,7 @@
     <description>Base pom for ScriptRunner for Bitbucket script plugins.</description>
 
     <properties>
-        <scriptrunner.version>5.6.1</scriptrunner.version> <!-- ScriptRunner for Bitbucket -->
+        <scriptrunner.version>5.6.6</scriptrunner.version> <!-- ScriptRunner for Bitbucket -->
 
         <bitbucket.version>5.5.0</bitbucket.version>
 
@@ -90,6 +90,7 @@
                         <systemPropertyVariables>
                             <atlassian.dev.mode>${dev.mode}</atlassian.dev.mode>
                             <plugin.script.roots>${plugin.script.roots}</plugin.script.roots>
+                            <plugin.script.test.packages>${plugin.script.test.packages}</plugin.script.test.packages>
                         </systemPropertyVariables>
 
                         <instructions>
