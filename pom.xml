@@ -15,7 +15,7 @@
     </organization>
 
     <name>ScriptRunner script plugins base pom</name>
-    <description>Parent pom for product specific ScriptRunner script plugin base poms.</description>
+    <description>Parent pom for product specific ScriptRunner script plugins.</description>
 
     <modules>
         <module>bamboo-base</module>
@@ -25,32 +25,35 @@
     </modules>
 
     <properties>
+        <atlassian.plugin.key>${project.groupId}.${project.artifactId}</atlassian.plugin.key>
+        <dev.mode>true</dev.mode>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <java.version>1.8</java.version>
-        <amps.version>6.3.21</amps.version>
-        <gmavenplus.version>1.7.1</gmavenplus.version>
-        <groovy.version>2.4.15</groovy.version> <!-- This should match the groovy version in ScriptRunner -->
-        <spring.version>4.1.7.RELEASE</spring.version>
-        <spock-core.version>1.1-groovy-2.4</spock-core.version>
-        <quick.reload.version>2.0.0</quick.reload.version>
-        <atlassian.sal.version>3.0.3</atlassian.sal.version>
-        <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
-        <atlassian-plugins.version>4.5.0</atlassian-plugins.version>
-        <classgraph.version>4.8.43</classgraph.version>
+        <product.host>localhost</product.host>
+        <product.port>8080</product.port>
 
         <plugin.script.roots>
             ${project.basedir}/src/main/resources,
             ${project.basedir}/src/test/resources
         </plugin.script.roots>
 
-        <dev.mode>true</dev.mode>
+        <!-- Dependency Versions -->
+        <java.version>1.8</java.version>
+        <groovy.version>2.4.15</groovy.version> <!-- This should match the groovy version in ScriptRunner -->
+        <spring.version>4.1.7.RELEASE</spring.version>
+        <spock-core.version>1.1-groovy-2.4</spock-core.version>
+        <quick.reload.version>2.0.0</quick.reload.version>
+        <atlassian.sal.version>3.0.3</atlassian.sal.version>
+        <atlassian-plugins-osgi.version>4.5.0</atlassian-plugins-osgi.version>
+        <classgraph.version>4.8.43</classgraph.version>
 
-        <product.host>localhost</product.host>
-        <product.port>8080</product.port>
-
-        <atlassian.plugin.key>${project.groupId}.${project.artifactId}</atlassian.plugin.key>
+        <!-- Plugin Versions -->
+        <amps.version>6.3.21</amps.version>
+        <gmavenplus-plugin.version>1.7.1</gmavenplus-plugin.version>
+        <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
+        <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
     </properties>
 
     <dependencies>
@@ -109,7 +112,7 @@
             <plugins>
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.7.0</version>
+                    <version>${maven-compiler-plugin.version}</version>
                     <configuration>
                         <source>${java.version}</source>
                         <target>${java.version}</target>
@@ -119,7 +122,7 @@
                 <plugin>
                     <groupId>org.codehaus.gmavenplus</groupId>
                     <artifactId>gmavenplus-plugin</artifactId>
-                    <version>${gmavenplus.version}</version>
+                    <version>${gmavenplus-plugin.version}</version>
                     <executions>
                         <execution>
                             <goals>

@@ -20,6 +20,7 @@
     </description>
 
     <properties>
+        <!-- Dependency Versions -->
         <logback-classic.version>1.2.1</logback-classic.version>
     </properties>
 
@@ -30,12 +31,14 @@
             <version>${atlassian.sal.version}</version>
             <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>com.atlassian.plugins</groupId>
             <artifactId>atlassian-plugins-osgi</artifactId>
-            <version>${atlassian-plugins.version}</version>
+            <version>${atlassian-plugins-osgi.version}</version>
             <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>

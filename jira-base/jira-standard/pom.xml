@@ -18,6 +18,7 @@
     <description>Base pom for ScriptRunner for Jira script plugins with standard dependencies and build.</description>
 
     <properties>
+        <!-- Dependency Versions -->
         <atlassian-plugins-osgi-bridge.version>5.3.2</atlassian-plugins-osgi-bridge.version>
     </properties>
 
@@ -28,6 +29,7 @@
             <version>${atlassian.sal.version}</version>
             <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>com.atlassian.plugins</groupId>
             <artifactId>atlassian-plugins-osgi-bridge</artifactId>
