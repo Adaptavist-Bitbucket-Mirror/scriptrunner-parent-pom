@@ -22,7 +22,7 @@
     </modules>
 
     <properties>
-        <scriptrunner.version>5.6.1</scriptrunner.version> <!-- ScriptRunner for Jira -->
+        <scriptrunner.version>5.6.6</scriptrunner.version> <!-- ScriptRunner for Jira -->
 
         <jira.version>7.9.0</jira.version>
         <jira.software.version>${jira.version}</jira.software.version>
@@ -116,6 +116,7 @@
                         <systemPropertyVariables>
                             <atlassian.dev.mode>${dev.mode}</atlassian.dev.mode>
                             <plugin.script.roots>${plugin.script.roots}</plugin.script.roots>
+                            <plugin.script.test.packages>${plugin.script.test.packages}</plugin.script.test.packages>
                             <jira.websudo.is.disabled>${dev.mode}</jira.websudo.is.disabled>
                         </systemPropertyVariables>
 

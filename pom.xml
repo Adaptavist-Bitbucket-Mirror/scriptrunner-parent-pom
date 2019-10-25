@@ -34,10 +34,8 @@
         <product.host>localhost</product.host>
         <product.port>8080</product.port>
 
-        <plugin.script.roots>
-            ${project.basedir}/src/main/resources,
-            ${project.basedir}/src/test/resources
-        </plugin.script.roots>
+        <plugin.script.roots>${project.basedir}/src/main/resources,${project.basedir}/src/test/resources,${project.basedir}/src/test/groovy</plugin.script.roots>
+        <plugin.script.test.packages>it.com.adaptavist</plugin.script.test.packages>
 
         <!-- Dependency Versions -->
         <java.version>1.8</java.version>
@@ -69,6 +67,13 @@
             <artifactId>groovy-all</artifactId>
             <version>${groovy.version}</version>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.groovy.modules.http-builder</groupId>
+            <artifactId>http-builder</artifactId>
+            <version>0.7.1</version>
+            <scope>test</scope>
         </dependency>
 
         <dependency>
