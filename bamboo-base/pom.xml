@@ -8,7 +8,7 @@
     <parent>
         <groupId>com.adaptavist.pom</groupId>
         <artifactId>scriptrunner-base</artifactId>
-        <version>16-SNAPSHOT</version>
+        <version>17-SNAPSHOT</version>
     </parent>
 
     <artifactId>scriptrunner-bamboo-base</artifactId>
@@ -65,13 +65,12 @@
             <plugins>
                 <plugin>
                     <groupId>com.atlassian.maven.plugins</groupId>
-                    <artifactId>maven-bamboo-plugin</artifactId>
+                    <artifactId>bamboo-maven-plugin</artifactId>
                     <version>${amps.version}</version>
                     <extensions>true</extensions>
                     <configuration>
                         <skipAmpsPomCheck>true</skipAmpsPomCheck>
                         <skipAllPrompts>true</skipAllPrompts>
-                        <enableFastdev>false</enableFastdev>
                         <extractDependencies>false</extractDependencies>
                         <allowGoogleTracking>false</allowGoogleTracking>
 

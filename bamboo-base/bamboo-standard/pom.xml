@@ -27,7 +27,7 @@
             </plugin>
             <plugin>
                 <groupId>com.atlassian.maven.plugins</groupId>
-                <artifactId>maven-bamboo-plugin</artifactId>
+                <artifactId>bamboo-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>

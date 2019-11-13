@@ -49,7 +49,7 @@
         <http-builder.version>0.7.1</http-builder.version>
 
         <!-- Plugin Versions -->
-        <amps.version>6.3.21</amps.version>
+        <amps.version>8.0.4</amps.version>
         <gmavenplus-plugin.version>1.7.1</gmavenplus-plugin.version>
         <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
         <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
@@ -195,7 +195,7 @@
         </repository>
         <repository>
             <id>atlassian-public</id>
-            <url>https://maven.atlassian.com/repository/public</url>
+            <url>https://packages.atlassian.com/content/groups/public/</url>
             <releases>
                 <enabled>true</enabled>
                 <checksumPolicy>warn</checksumPolicy>
@@ -205,12 +205,11 @@
             </snapshots>
         </repository>
         <repository>
+            <id>jCenter</id>
+            <url>http://jcenter.bintray.com</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
-            <id>central</id>
-            <name>bintray</name>
-            <url>http://jcenter.bintray.com</url>
         </repository>
         <repository>
             <snapshots>
@@ -225,7 +224,7 @@
     <pluginRepositories>
         <pluginRepository>
             <id>atlassian-public</id>
-            <url>https://maven.atlassian.com/repository/public</url>
+            <url>https://packages.atlassian.com/content/groups/public/</url>
             <releases>
                 <enabled>true</enabled>
                 <checksumPolicy>warn</checksumPolicy>

@@ -20,7 +20,7 @@
     <properties>
         <scriptrunner.version>5.6.7-RC1</scriptrunner.version> <!-- ScriptRunner for Bitbucket -->
 
-        <bitbucket.version>5.5.0</bitbucket.version>
+        <bitbucket.version>5.16.10</bitbucket.version>
 
         <bitbucket.host>${product.host}</bitbucket.host>
         <bitbucket.port>${product.port}</bitbucket.port>
@@ -64,7 +64,6 @@
                     <configuration>
                         <skipAmpsPomCheck>true</skipAmpsPomCheck>
                         <skipAllPrompts>true</skipAllPrompts>
-                        <enableFastdev>false</enableFastdev>
                         <extractDependencies>false</extractDependencies>
                         <allowGoogleTracking>false</allowGoogleTracking>
 
