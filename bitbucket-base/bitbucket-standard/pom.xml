@@ -8,11 +8,11 @@
     <parent>
         <groupId>com.adaptavist.pom</groupId>
         <artifactId>scriptrunner-bitbucket-base</artifactId>
-        <version>17</version>
+        <version>18-SNAPSHOT</version>
     </parent>
 
     <artifactId>scriptrunner-bitbucket-standard</artifactId>
-    <version>17</version>
+    <version>18-SNAPSHOT</version>
 
     <name>ScriptRunner for Bitbucket - standard plugin pom</name>
     <description>
