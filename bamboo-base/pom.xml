@@ -65,7 +65,7 @@
             <plugins>
                 <plugin>
                     <groupId>com.atlassian.maven.plugins</groupId>
-                    <artifactId>bamboo-maven-plugin</artifactId>
+                    <artifactId>maven-bamboo-plugin</artifactId>
                     <version>${amps.version}</version>
                     <extensions>true</extensions>
                     <configuration>
@@ -107,9 +107,7 @@
 
                         <instructions>
                             <Import-Package>
-                                org.springframework.osgi.*;resolution:="optional",
-                                org.eclipse.gemini.blueprint.*;resolution:="optional",
-                                *
+                                *;resolution:="optional"
                             </Import-Package>
 
                             <!-- Ensure plugin is spring powered -->

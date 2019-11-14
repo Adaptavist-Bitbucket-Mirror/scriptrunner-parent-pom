@@ -98,7 +98,7 @@
             <plugins>
                 <plugin>
                     <groupId>com.atlassian.maven.plugins</groupId>
-                    <artifactId>jira-maven-plugin</artifactId>
+                    <artifactId>maven-jira-plugin</artifactId>
                     <version>${amps.version}</version>
                     <extensions>true</extensions>
                     <configuration>
