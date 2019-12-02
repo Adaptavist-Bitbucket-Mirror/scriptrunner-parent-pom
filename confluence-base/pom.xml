@@ -22,7 +22,7 @@
     </modules>
 
     <properties>
-        <scriptrunner.version>5.6.7</scriptrunner.version> <!-- ScriptRunner for Confluence -->
+        <scriptrunner.version>5.6.8</scriptrunner.version> <!-- ScriptRunner for Confluence -->
 
         <confluence.version>6.15.9</confluence.version>
         <confluence.host>${product.host}</confluence.host>
@@ -61,7 +61,7 @@
             <plugins>
                 <plugin>
                     <groupId>com.atlassian.maven.plugins</groupId>
-                    <artifactId>maven-confluence-plugin</artifactId>
+                    <artifactId>confluence-maven-plugin</artifactId>
                     <version>${amps.version}</version>
                     <extensions>true</extensions>
                     <configuration>
@@ -69,6 +69,7 @@
                         <skipAllPrompts>true</skipAllPrompts>
                         <extractDependencies>false</extractDependencies>
                         <allowGoogleTracking>false</allowGoogleTracking>
+                        <enableQuickReload>true</enableQuickReload>
 
                         <productVersion>${confluence.version}</productVersion>
                         <productDataVersion>${confluence.version}</productDataVersion>
@@ -80,12 +81,6 @@
                                 <groupId>com.onresolve.confluence.groovy</groupId>
                                 <artifactId>groovyrunner</artifactId>
                                 <version>${scriptrunner.version}</version>
-                            </pluginArtifact>
-
-                            <pluginArtifact>
-                                <groupId>com.atlassian.labs.plugins</groupId>
-                                <artifactId>quickreload</artifactId>
-                                <version>${quick.reload.version}</version>
                             </pluginArtifact>
 
                             <pluginArtifact>

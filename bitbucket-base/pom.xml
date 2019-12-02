@@ -18,7 +18,7 @@
     <description>Base pom for ScriptRunner for Bitbucket script plugins.</description>
 
     <properties>
-        <scriptrunner.version>5.6.7</scriptrunner.version> <!-- ScriptRunner for Bitbucket -->
+        <scriptrunner.version>5.6.8</scriptrunner.version> <!-- ScriptRunner for Bitbucket -->
 
         <bitbucket.version>5.16.10</bitbucket.version>
 
@@ -66,6 +66,7 @@
                         <skipAllPrompts>true</skipAllPrompts>
                         <extractDependencies>false</extractDependencies>
                         <allowGoogleTracking>false</allowGoogleTracking>
+                        <enableQuickReload>true</enableQuickReload>
 
                         <productVersion>${bitbucket.version}</productVersion>
                         <productDataVersion>${bitbucket.version}</productDataVersion>
@@ -77,12 +78,6 @@
                                 <groupId>com.onresolve.stash.groovy</groupId>
                                 <artifactId>groovyrunner</artifactId>
                                 <version>${scriptrunner.version}</version>
-                            </pluginArtifact>
-
-                            <pluginArtifact>
-                                <groupId>com.atlassian.labs.plugins</groupId>
-                                <artifactId>quickreload</artifactId>
-                                <version>${quick.reload.version}</version>
                             </pluginArtifact>
                         </pluginArtifacts>
 

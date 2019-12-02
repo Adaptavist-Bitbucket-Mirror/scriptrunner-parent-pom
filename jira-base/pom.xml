@@ -22,7 +22,7 @@
     </modules>
 
     <properties>
-        <scriptrunner.version>5.6.7</scriptrunner.version> <!-- ScriptRunner for Jira -->
+        <scriptrunner.version>5.6.8</scriptrunner.version> <!-- ScriptRunner for Jira -->
 
         <jira.version>7.13.11</jira.version>
         <jira.software.version>${jira.version}</jira.software.version>
@@ -98,7 +98,7 @@
             <plugins>
                 <plugin>
                     <groupId>com.atlassian.maven.plugins</groupId>
-                    <artifactId>maven-jira-plugin</artifactId>
+                    <artifactId>jira-maven-plugin</artifactId>
                     <version>${amps.version}</version>
                     <extensions>true</extensions>
                     <configuration>
@@ -106,6 +106,7 @@
                         <skipAllPrompts>true</skipAllPrompts>
                         <extractDependencies>false</extractDependencies>
                         <allowGoogleTracking>false</allowGoogleTracking>
+                        <enableQuickReload>true</enableQuickReload>
 
                         <productVersion>${jira.version}</productVersion>
                         <productDataVersion>${jira.version}</productDataVersion>
@@ -117,12 +118,6 @@
                                 <groupId>com.onresolve.jira.groovy</groupId>
                                 <artifactId>groovyrunner</artifactId>
                                 <version>${scriptrunner.version}</version>
-                            </pluginArtifact>
-
-                            <pluginArtifact>
-                                <groupId>com.atlassian.labs.plugins</groupId>
-                                <artifactId>quickreload</artifactId>
-                                <version>${quick.reload.version}</version>
                             </pluginArtifact>
                         </pluginArtifacts>
 

@@ -42,14 +42,13 @@
         <groovy.version>2.4.15</groovy.version> <!-- This should match the groovy version in ScriptRunner -->
         <spring.version>4.1.7.RELEASE</spring.version>
         <spock-core.version>1.1-groovy-2.4</spock-core.version>
-        <quick.reload.version>2.0.0</quick.reload.version>
         <atlassian.sal.version>3.0.3</atlassian.sal.version>
         <atlassian-plugins-osgi.version>4.5.0</atlassian-plugins-osgi.version>
         <classgraph.version>4.8.43</classgraph.version>
         <http-builder.version>0.7.1</http-builder.version>
 
         <!-- Plugin Versions -->
-        <amps.version>6.3.21</amps.version>
+        <amps.version>8.0.4</amps.version>
         <gmavenplus-plugin.version>1.7.1</gmavenplus-plugin.version>
         <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
         <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
