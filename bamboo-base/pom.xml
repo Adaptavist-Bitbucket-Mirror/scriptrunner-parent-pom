@@ -73,6 +73,8 @@
                         <skipAllPrompts>true</skipAllPrompts>
                         <extractDependencies>false</extractDependencies>
                         <allowGoogleTracking>false</allowGoogleTracking>
+                        <enableQuickReload>true</enableQuickReload>
+                        <enableFastdev>false</enableFastdev>
 
                         <productVersion>${bamboo.version}</productVersion>
                         <productDataVersion>${bamboo.data.version}</productDataVersion>
@@ -84,12 +86,6 @@
                                 <groupId>com.onresolve.bamboo.groovy</groupId>
                                 <artifactId>groovyrunner</artifactId>
                                 <version>${scriptrunner.version}</version>
-                            </pluginArtifact>
-
-                            <pluginArtifact>
-                                <groupId>com.atlassian.labs.plugins</groupId>
-                                <artifactId>quickreload</artifactId>
-                                <version>${quick.reload.version}</version>
                             </pluginArtifact>
 
                             <pluginArtifact>

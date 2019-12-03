@@ -66,6 +66,8 @@
                         <skipAllPrompts>true</skipAllPrompts>
                         <extractDependencies>false</extractDependencies>
                         <allowGoogleTracking>false</allowGoogleTracking>
+                        <enableQuickReload>true</enableQuickReload>
+                        <enableFastdev>false</enableFastdev>
 
                         <productVersion>${bitbucket.version}</productVersion>
                         <productDataVersion>${bitbucket.version}</productDataVersion>
@@ -77,12 +79,6 @@
                                 <groupId>com.onresolve.stash.groovy</groupId>
                                 <artifactId>groovyrunner</artifactId>
                                 <version>${scriptrunner.version}</version>
-                            </pluginArtifact>
-
-                            <pluginArtifact>
-                                <groupId>com.atlassian.labs.plugins</groupId>
-                                <artifactId>quickreload</artifactId>
-                                <version>${quick.reload.version}</version>
                             </pluginArtifact>
                         </pluginArtifacts>
 
