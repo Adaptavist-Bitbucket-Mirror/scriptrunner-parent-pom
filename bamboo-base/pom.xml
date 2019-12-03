@@ -8,7 +8,7 @@
     <parent>
         <groupId>com.adaptavist.pom</groupId>
         <artifactId>scriptrunner-base</artifactId>
-        <version>18-SNAPSHOT</version>
+        <version>19</version>
     </parent>
 
     <artifactId>scriptrunner-bamboo-base</artifactId>
