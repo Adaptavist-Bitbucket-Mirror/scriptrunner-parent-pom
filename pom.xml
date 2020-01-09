@@ -7,7 +7,7 @@
 
     <groupId>com.adaptavist.pom</groupId>
     <artifactId>scriptrunner-base</artifactId>
-    <version>20</version>
+    <version>21-SNAPSHOT</version>
 
     <organization>
         <name>Adaptavist.com Ltd</name>
