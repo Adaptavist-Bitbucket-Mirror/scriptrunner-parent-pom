@@ -21,7 +21,7 @@
     </modules>
 
     <properties>
-        <scriptrunner.version>6.0.1</scriptrunner.version> <!-- ScriptRunner for Confluence -->
+        <scriptrunner.version>6.1.0</scriptrunner.version> <!-- ScriptRunner for Confluence -->
 
         <confluence.version>6.15.9</confluence.version>
         <confluence.host>${product.host}</confluence.host>
