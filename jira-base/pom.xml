@@ -90,6 +90,13 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <dependency>
+            <groupId>com.atlassian.jira.plugins</groupId>
+            <artifactId>jira-greenhopper-plugin</artifactId>
+            <version>7.7.0-DAILY20171221023017</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
