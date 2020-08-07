@@ -21,9 +21,9 @@
     </modules>
 
     <properties>
-        <scriptrunner.version>6.2.0</scriptrunner.version> <!-- ScriptRunner for Confluence -->
+        <scriptrunner.version>6.5.0-p5</scriptrunner.version> <!-- ScriptRunner for Confluence -->
 
-        <confluence.version>6.15.9</confluence.version>
+        <confluence.version>7.1.0</confluence.version>
         <confluence.host>${product.host}</confluence.host>
         <confluence.port>${product.port}</confluence.port>
 
@@ -60,7 +60,7 @@
             <plugins>
                 <plugin>
                     <groupId>com.atlassian.maven.plugins</groupId>
-                    <artifactId>maven-confluence-plugin</artifactId>
+                    <artifactId>confluence-maven-plugin</artifactId>
                     <version>${amps.version}</version>
                     <extensions>true</extensions>
                     <configuration>
@@ -69,7 +69,6 @@
                         <extractDependencies>false</extractDependencies>
                         <allowGoogleTracking>false</allowGoogleTracking>
                         <enableQuickReload>true</enableQuickReload>
-                        <enableFastdev>false</enableFastdev>
 
                         <productVersion>${confluence.version}</productVersion>
                         <productDataVersion>${confluence.version}</productDataVersion>

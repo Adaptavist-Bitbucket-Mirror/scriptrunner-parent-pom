@@ -64,7 +64,7 @@
             <plugins>
                 <plugin>
                     <groupId>com.atlassian.maven.plugins</groupId>
-                    <artifactId>maven-bamboo-plugin</artifactId>
+                    <artifactId>bamboo-maven-plugin</artifactId>
                     <version>${amps.version}</version>
                     <extensions>true</extensions>
                     <configuration>
@@ -73,7 +73,6 @@
                         <extractDependencies>false</extractDependencies>
                         <allowGoogleTracking>false</allowGoogleTracking>
                         <enableQuickReload>true</enableQuickReload>
-                        <enableFastdev>false</enableFastdev>
 
                         <productVersion>${bamboo.version}</productVersion>
                         <productDataVersion>${bamboo.data.version}</productDataVersion>
