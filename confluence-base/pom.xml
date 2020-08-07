@@ -31,6 +31,7 @@
 
         <!-- Dependency Versions -->
         <logging-assistant.version>1.0.0</logging-assistant.version>
+        <enforcer.fail>false</enforcer.fail>
     </properties>
 
     <dependencies>
