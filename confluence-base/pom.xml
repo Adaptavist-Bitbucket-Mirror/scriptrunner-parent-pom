@@ -65,6 +65,7 @@
                     <version>${amps.version}</version>
                     <extensions>true</extensions>
                     <configuration>
+                        <jvmArgs>-Xms512m -Xmx2g -XX:MaxPermSize=1g -XX:-UseGCOverheadLimit -server</jvmArgs>
                         <skipAmpsPomCheck>true</skipAmpsPomCheck>
                         <skipAllPrompts>true</skipAllPrompts>
                         <extractDependencies>false</extractDependencies>
