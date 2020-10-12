@@ -213,9 +213,7 @@
                     <executions>
                         <execution>
                             <id>integration-test</id>
-                            <goals>
-                                <goal>pre-integration-test</goal>
-                            </goals>
+                            <phase>pre-integration-test</phase>
                         </execution>
                     </executions>
                 </plugin>
