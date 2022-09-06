@@ -17,7 +17,6 @@
     <description>Parent pom for product specific ScriptRunner script plugins.</description>
 
     <modules>
-        <module>bamboo-base</module>
         <module>bitbucket-base</module>
         <module>confluence-base</module>
         <module>jira-base</module>
