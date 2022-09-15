@@ -6,7 +6,6 @@ has the parent pom that you can inherit from to build your plugin.
 For most users, you want the product-specific standard parent pom.
 This will be one of the following, depending on your host application:
 
-* **scriptrunner-bamboo-standard**
 * **scriptrunner-bitbucket-standard**
 * **scriptrunner-confluence-standard**
 * **scriptrunner-jira-standard**
@@ -27,7 +26,6 @@ sections.
 Under this are a set of per Atlassian product base poms which
 declare the product specific sections as above:
 
-* **scriptrunner-bamboo-base**
 * **scriptrunner-bitbucket-base**
 * **scriptrunner-confluence-base**
 * **scriptrunner-jira-base**
@@ -35,7 +33,6 @@ declare the product specific sections as above:
 Within those base projects are the build poms. These are the poms that we expect most plugins will 
 inherit from and where product specific dependencies needed for compilation are listed.
 
-* **scriptrunner-bamboo-standard**
 * **scriptrunner-bitbucket-standard**
 * **scriptrunner-confluence-standard**
 * **scriptrunner-jira-standard**
