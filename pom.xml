@@ -252,7 +252,7 @@
     </distributionManagement>
 
     <scm>
-        <developerConnection>scm:git:ssh://git@stash.adaptavist.com:7999/sr/scriptrunner-parent-pom.git
+        <developerConnection>scm:git:ssh://git@bitbucket.org:/Adaptavist/scriptrunner-parent-pom.git
         </developerConnection>
         <tag>HEAD</tag>
     </scm>
