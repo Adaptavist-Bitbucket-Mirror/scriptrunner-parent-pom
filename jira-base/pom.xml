@@ -21,7 +21,7 @@
     </modules>
 
     <properties>
-        <scriptrunner.version>7.5.0</scriptrunner.version> <!-- ScriptRunner for Jira -->
+        <scriptrunner.version>7.6.0</scriptrunner.version> <!-- ScriptRunner for Jira -->
 
         <jira.version>8.0.0</jira.version>
         <jira.software.version>${jira.version}</jira.software.version>
