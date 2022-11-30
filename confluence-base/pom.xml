@@ -7,11 +7,11 @@
     <parent>
         <groupId>com.adaptavist.pom</groupId>
         <artifactId>scriptrunner-base</artifactId>
-        <version>38-SNAPSHOT</version>
+        <version>39-SNAPSHOT</version>
     </parent>
 
     <artifactId>scriptrunner-confluence-base</artifactId>
-    <version>38-SNAPSHOT</version>
+    <version>39-SNAPSHOT</version>
 
     <name>ScriptRunner for Confluence - base plugin pom</name>
     <description>Base pom for ScriptRunner for Confluence script plugins.</description>
@@ -21,7 +21,7 @@
     </modules>
 
     <properties>
-        <scriptrunner.version>7.5.0</scriptrunner.version> <!-- ScriptRunner for Confluence -->
+        <scriptrunner.version>7.6.0</scriptrunner.version> <!-- ScriptRunner for Confluence -->
 
         <confluence.version>7.1.0</confluence.version>
         <confluence.host>${product.host}</confluence.host>
