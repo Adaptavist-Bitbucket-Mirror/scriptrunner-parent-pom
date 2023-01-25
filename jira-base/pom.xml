@@ -7,11 +7,11 @@
     <parent>
         <groupId>com.adaptavist.pom</groupId>
         <artifactId>scriptrunner-base</artifactId>
-        <version>40-SNAPSHOT</version>
+        <version>40</version>
     </parent>
 
     <artifactId>scriptrunner-jira-base</artifactId>
-    <version>40-SNAPSHOT</version>
+    <version>40</version>
 
     <name>ScriptRunner for Jira - base plugin pom</name>
     <description>Base pom for ScriptRunner for Jira script plugins.</description>
