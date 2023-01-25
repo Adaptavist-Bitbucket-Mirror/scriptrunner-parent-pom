@@ -17,7 +17,7 @@
     <description>Base pom for ScriptRunner for Bitbucket script plugins.</description>
 
     <properties>
-        <scriptrunner.version>7.8.0</scriptrunner.version> <!-- ScriptRunner for Bitbucket -->
+        <scriptrunner.version>7.9.0</scriptrunner.version> <!-- ScriptRunner for Bitbucket -->
 
         <bitbucket.version>6.0.0</bitbucket.version>
 
