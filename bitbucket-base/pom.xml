@@ -19,7 +19,7 @@
     <properties>
         <scriptrunner.version>8.1.0</scriptrunner.version> <!-- ScriptRunner for Bitbucket -->
 
-        <bitbucket.version>6.0.0</bitbucket.version>
+        <bitbucket.version>7.5.0</bitbucket.version>
 
         <bitbucket.host>${product.host}</bitbucket.host>
         <bitbucket.port>${product.port}</bitbucket.port>
