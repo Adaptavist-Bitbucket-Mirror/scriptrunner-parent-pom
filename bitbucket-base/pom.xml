@@ -7,19 +7,19 @@
     <parent>
         <groupId>com.adaptavist.pom</groupId>
         <artifactId>scriptrunner-base</artifactId>
-        <version>47-SNAPSHOT</version>
+        <version>48-SNAPSHOT</version>
     </parent>
 
     <artifactId>scriptrunner-bitbucket-base</artifactId>
-    <version>47-SNAPSHOT</version>
+    <version>48-SNAPSHOT</version>
 
     <name>ScriptRunner for Bitbucket - base plugin pom</name>
     <description>Base pom for ScriptRunner for Bitbucket script plugins.</description>
 
     <properties>
-        <scriptrunner.version>8.0.0</scriptrunner.version> <!-- ScriptRunner for Bitbucket -->
+        <scriptrunner.version>8.1.0</scriptrunner.version> <!-- ScriptRunner for Bitbucket -->
 
-        <bitbucket.version>6.0.0</bitbucket.version>
+        <bitbucket.version>7.5.0</bitbucket.version>
 
         <bitbucket.host>${product.host}</bitbucket.host>
         <bitbucket.port>${product.port}</bitbucket.port>
