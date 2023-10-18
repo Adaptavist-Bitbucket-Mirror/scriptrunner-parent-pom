@@ -21,11 +21,11 @@
     </modules>
 
     <properties>
-        <scriptrunner.version>8.12.0</scriptrunner.version> <!-- ScriptRunner for Jira -->
+        <scriptrunner.version>8.14.0</scriptrunner.version> <!-- ScriptRunner for Jira -->
 
-        <jira.version>8.16.0</jira.version>
+        <jira.version>8.20.0</jira.version>
         <jira.software.version>${jira.version}</jira.software.version>
-        <jira.servicedesk.version>4.0.0</jira.servicedesk.version>
+        <jira.servicedesk.version>4.20.0</jira.servicedesk.version>
 
         <jira.host>${product.host}</jira.host>
         <jira.port>${product.port}</jira.port>
