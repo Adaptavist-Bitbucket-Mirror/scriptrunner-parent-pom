@@ -6,7 +6,7 @@
 
     <groupId>com.adaptavist.pom</groupId>
     <artifactId>scriptrunner-base</artifactId>
-    <version>68-SNAPSHOT</version>
+    <version>68</version>
 
     <organization>
         <name>Adaptavist.com Ltd</name>
@@ -254,6 +254,6 @@
     <scm>
         <developerConnection>scm:git:ssh://git@bitbucket.org:/Adaptavist/scriptrunner-parent-pom.git
         </developerConnection>
-        <tag>HEAD</tag>
+        <tag>scriptrunner-base-68</tag>
     </scm>
 </project>
